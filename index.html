@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portafolio de Harold Gutierrez, diseñador web y gráfico especializado en experiencias digitales, identidad visual, campañas y contenido creativo." />
+    <title>Harold Gutierrez — Diseñador Web y Gráfico</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="theme-dark">
+    <script>
+        /*
+         * Marca que hay JS disponible y aplica el tema guardado antes de
+         * pintar la interfaz para evitar un cambio visual brusco al cargar.
+         */
+        (() => {
+            document.documentElement.classList.add("js");
+
+            try {
+                const savedTheme = localStorage.getItem("harold-portfolio-theme");
+                const initialTheme =
+                    savedTheme === "light" || savedTheme === "dark"
+                        ? savedTheme
+                        : "dark";
+
+                document.body.classList.toggle(
+                    "theme-dark",
+                    initialTheme === "dark"
+                );
+                document.body.dataset.theme = initialTheme;
+            } catch {
+                document.body.classList.add("theme-dark");
+                document.body.dataset.theme = "dark";
+            }
+        })();
+    </script>
+    <div class="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <span class="cursor__text"></span>
+    </div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <header class="nav">
+        <a class="nav__brand" href="#inicio">
+            <img class="nav__avatar" src="https://i.ibb.co/Z6DBTdyr/miller.png"
+                alt="Harold Gutierrez" width="44" height="44" />
+            <span>Harold Gutierrez</span>
+        </a>
+
+        <span class="nav__center">Diseñador web &amp; gráfico</span>
+
+        <div class="nav__actions">
+            <a class="nav__link" href="#proyectos">Proyectos</a>
+
+            <button class="theme-toggle" type="button" aria-label="Cambiar a tema claro" aria-pressed="true"
+                data-cursor-text="TEMA">
+                <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+                <span class="theme-toggle__text">Oscuro</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="scroll-progress" aria-hidden="true">
+        <div class="scroll-progress__bar"></div>
+    </div>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero__sticky">
+                <div class="hero__grid"></div>
+                <div class="hero__soft-shape"></div>
+
+                <div class="hero__content">
+
+                    <h1 class="hero__title">
+                        <span class="hero__title-line hero__title-line--primary">
+                            <span class="hero__title-stack">
+                                <span class="hero__title-word">
+                                    <span class="hero__title-word-inner">Portafolio</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="hero__title-line hero__title-line--dominant">
+                            <span class="hero__title-stack">
+                                <span class="hero__title-word">
+                                    <span class="hero__title-word-inner">Creativo</span>
+                                </span>
+                            </span>
+                        </span>
+                    </h1>
+
+                    <div class="hero__footer">
+                        <p class="hero__description">
+                            Soy Harold Gutierrez, diseñador web y gráfico. Creo
+                            experiencias digitales, identidades visuales y piezas de
+                            comunicación que combinan claridad, funcionalidad y carácter.
+                        </p>
+
+                        <div class="hero__scroll">
+                            <span>Desliza</span>
+                            <span class="hero__scroll-line"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <span class="intro__number" aria-hidden="true">01</span>
+
+            <div class="intro__inner">
+                <div>
+                    <p class="intro__label" data-reveal>
+                        Sobre mí
+                    </p>
+
+                    <h2 class="intro__title">
+                        <span data-reveal>Diseño que comunica.</span>
+                    </h2>
+                </div>
+
+                <div class="text-magnifier" data-magnifier data-scale="2.25" data-reveal="right">
+                    <p class="text-magnifier__source">
+                        Diseñador web con más de 10 años de experiencia creando
+                        experiencias digitales que combinan diseño, funcionalidad y
+                        estrategia. Me especializo en transformar ideas y necesidades de
+                        negocio en sitios web modernos, intuitivos y visualmente sólidos,
+                        aplicando principios de UX/UI para lograr una navegación clara y
+                        efectiva. Complemento mi perfil con experiencia en diseño gráfico
+                        e identidad visual, e integro herramientas de inteligencia
+                        artificial para optimizar procesos, potenciar la creatividad y
+                        desarrollar soluciones digitales más eficientes. Mi objetivo es
+                        crear sitios que no solo se vean bien, sino que comuniquen,
+                        funcionen y generen una experiencia memorable.
+                    </p>
+
+                    <div class="text-magnifier__lens" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="proyectos">
+            <div class="projects__sticky">
+                <div class="projects__header">
+                    <h2 data-reveal>Proyectos y experiencia</h2>
+
+                    <div class="projects__counter">
+                        Escena <strong data-scene-counter>01</strong> / 06
+                    </div>
+                </div>
+
+                <div class="projects__viewport">
+                    <div class="projects__track">
+                        <a class="project-card" href="https://www.chaletlaalemania.com/" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar el sitio web de Chalet La Alemania">
+                            <div class="project-card__visual project-card__visual--one"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">01 / Sitio web</span>
+                                    <span class="project-card__tag">Turismo · Hospedaje</span>
+                                </div>
+
+                                <h3 class="project-card__title">Chalet La Alemania</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño y desarrollo de un sitio web para un alojamiento
+                                        rural del Quindío. La experiencia organiza habitaciones,
+                                        servicios, reseñas, ubicación y canales de reserva dentro
+                                        de una navegación clara y orientada a conversión.
+                                    </p>
+
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="project-card" href="https://donhotelero.lexx.com.co/don_hotelero/" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar el sitio web de Don Hotelero">
+                            <div class="project-card__visual project-card__visual--two"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">02 / Sitio web</span>
+                                    <span class="project-card__tag">Marca · Contenido digital</span>
+                                </div>
+
+                                <h3 class="project-card__title">Don Hotelero</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño de una página web orientada a la presentación de la
+                                        marca Don Hotelero, enfocada en contenido y comunicación
+                                        para el sector hotelero, con una estructura clara y una
+                                        lectura visual directa.
+                                    </p>
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="project-card" href="https://conexpago.com/inicio/?dev=1#" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar el sitio web de Conexpago">
+                            <div class="project-card__visual project-card__visual--three"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">03 / Plataforma web</span>
+                                    <span class="project-card__tag">Pagos · Servicios digitales</span>
+                                </div>
+
+                                <h3 class="project-card__title">Conexpago</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño y desarrollo de la web de Conexpago, una
+                                        plataforma de pagos y servicios digitales en Colombia.
+                                        Una interfaz clara y funcional para gestionar recargas,
+                                        facturas y transacciones, con una experiencia de usuario
+                                        ágil, ordenada y segura.
+                                    </p>
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="project-card" href="https://servimotos.co/" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar el sitio web de Servimotos El Rolo">
+                            <div class="project-card__visual project-card__visual--four"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">04 / Sitio web</span>
+                                    <span class="project-card__tag">Motos · Cuidado y mantenimiento</span>
+                                </div>
+
+                                <h3 class="project-card__title">Servimotos El Rolo</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño y desarrollo de la web de Servimotos El Rolo,
+                                        taller de cuidado y mantenimiento de motocicletas en
+                                        Armenia, Quindío. El sitio organiza servicios como lavado,
+                                        cambio de aceite y mecánica en una navegación clara,
+                                        cercana y fácil de consultar para el motociclista.
+                                    </p>
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="project-card" href="https://gutisite.unaux.com/tienda/" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar la tienda en línea de Anaya Outlet">
+                            <div class="project-card__visual project-card__visual--five"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">05 / Tienda online</span>
+                                    <span class="project-card__tag">Retail · Outlet</span>
+                                </div>
+
+                                <h3 class="project-card__title">Anaya Outlet</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño y desarrollo de la tienda en línea de Anaya
+                                        Outlet, un comercio electrónico para explorar y comprar
+                                        productos de forma ágil. Una interfaz ordenada, con
+                                        catálogo claro y un proceso de compra sencillo.
+                                    </p>
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="project-card" href="https://gutisite.unaux.com/pantallaYa_old/" target="_blank"
+                            rel="noopener noreferrer" data-cursor-text="VISITAR"
+                            aria-label="Visitar el sitio web de PantallaYa">
+                            <div class="project-card__visual project-card__visual--six"></div>
+                            <div class="project-card__veil"></div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__top">
+                                    <span class="project-card__number">06 / Software web</span>
+                                    <span class="project-card__tag">Publicidad digital · Ascensores</span>
+                                </div>
+
+                                <h3 class="project-card__title">PantallaYa</h3>
+
+                                <div class="project-card__bottom">
+                                    <p class="project-card__copy">
+                                        Diseño y desarrollo de la web de PantallaYa, un software
+                                        de publicidad digital para tablets instaladas en
+                                        ascensores. Conecta edificios, conjuntos residenciales y
+                                        empresas con campañas en espacios físicos, desde una
+                                        plataforma clara para gestionar y programar contenidos.
+                                    </p>
+                                    <span class="project-card__arrow" aria-hidden="true">↗</span>
+                                </div>
+
+                                <p class="project-card__demo">
+                                    <span class="project-card__demo-label">Demo</span>
+                                    <span class="project-card__demo-item"><span>Correo</span> admin@admin.com</span>
+                                    <span class="project-card__demo-item"><span>Clave</span> 12345</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail">
+            <div class="detail__line"></div>
+
+            <div class="detail__inner">
+                <h2 class="detail__title" data-reveal="left">
+                    Diseño con
+                    <span class="accent-line">propósito</span>
+                </h2>
+
+                <div class="text-magnifier" data-magnifier data-scale="2.25" data-reveal="right">
+                    <span class="text-magnifier__hint">
+                        Experiencia
+                    </span>
+
+                    <p class="text-magnifier__source">
+                        He desarrollado sitios web y piezas gráficas pensados para
+                        resolver necesidades reales de empresas y clientes: presencia en
+                        línea para alojamientos y marcas, identidad visual, material
+                        digital y comunicación. Cada proyecto parte de un objetivo de
+                        negocio concreto y busca resultados medibles: más visibilidad,
+                        mejor experiencia para el usuario y una imagen coherente y
+                        profesional que suma valor al cliente.
+                    </p>
+
+                    <div class="text-magnifier__lens" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto">
+            <div class="manifesto__accent"></div>
+
+            <div class="manifesto__inner">
+                <img class="manifesto__avatar" src="https://i.ibb.co/Z6DBTdyr/miller.png"
+                    alt="Harold Gutierrez" />
+
+                <div class="manifesto__text">
+                    <span class="manifesto__line">Menos ruido, más diseño</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="finale">
+            <div class="finale__shape"></div>
+
+            <div class="finale__inner">
+                <p class="finale__label" data-reveal>
+                    Disponible para nuevos proyectos y colaboraciones
+                </p>
+
+                <h2 class="finale__title">
+                    <span data-reveal>Hablemos de</span>
+                    <span class="accent-line" data-reveal style="--reveal-delay: 120ms;">
+                        tu proyecto
+                    </span>
+                </h2>
+
+                <a class="finale__button magnetic" href="#contacto" data-cursor-text="CONTACTO" data-reveal
+                    style="--reveal-delay: 220ms;">
+                    <span>Ver datos de contacto</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="contact" id="contacto">
+            <div class="contact__inner">
+                <p class="contact__eyebrow" data-reveal>Contacto</p>
+
+                <div class="contact__grid">
+                    <h2 class="contact__title" data-reveal>
+                        Harold<br />Gutierrez
+                    </h2>
+
+                    <div class="contact__details" data-reveal="right">
+                        <p>
+                            Diseñador web y gráfico enfocado en experiencias digitales,
+                            identidad visual, publicidad y contenido creativo.
+                        </p>
+
+                        <dl>
+                            <div>
+                                <dt>Correo</dt>
+                                <dd><a href="mailto:dg@recargamos.co">dg@recargamos.co</a></dd>
+                            </div>
+
+                            <div>
+                                <dt>Celular</dt>
+                                <dd><a href="tel:+573215745357">321 574 5357</a></dd>
+                            </div>
+
+                            <div>
+                                <dt>Redes sociales</dt>
+                                <dd class="contact__socials">
+                                    <a href="#" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
+                                    </a>
+                                    <a href="#" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.4 1.4-1.4h1.4V5.6c-.7-.1-1.4-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.1H8.2V14h2.4v7h3z"/></svg>
+                                    </a>
+                                    <a href="#" aria-label="YouTube">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><polygon points="10,9.5 15.5,12 10,14.5" fill="currentColor" stroke="none"/></svg>
+                                    </a>
+                                    <a href="#" aria-label="X">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 4h2.7l-5.9 6.8L21.5 20h-5.4l-4.2-5.5L7.1 20H4.4l6.3-7.2L3.8 4h5.5l3.8 5 4.4-5zm-1 14.3h1.5L8 5.6H6.4l10.1 12.7z"/></svg>
+                                    </a>
+                                    <a href="#" aria-label="TikTok">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9v2.6c-1.2.1-2.4-.2-3.5-.8v5.9c0 3-2.5 5.4-5.5 5.1-2.6-.2-4.6-2.4-4.6-5 0-2.9 2.4-5.2 5.3-5 .4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.5 1.2-2.5 2.6 0 1.4 1.1 2.5 2.5 2.6 1.5.1 2.7-1 2.7-2.5V3h2.6z"/></svg>
+                                    </a>
+                                </dd>
+                            </div>
+                        </dl>
+
+                        <a class="contact__back" href="#inicio">
+                            Volver al inicio ↑
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
