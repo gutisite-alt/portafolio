@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic ERP - Microsoft Visual Basic [run]</title>
+    <link rel="stylesheet" href="css/retro.css">
+</head>
+<body>
+
+    <!-- Contenedor Principal del IDE de Visual Basic 6.0 -->
+    <div id="ide-container" style="display: none;">
+        
+        <!-- Barra de Menús -->
+        <div class="win-menubar">
+            <div class="win-menubar-item">
+                Archivo (A)
+                <div class="win-menu-dropdown">
+                    <a href="#" class="win-menu-item" onclick="loadInitialData(); showToast('Catálogos actualizados.');">Actualizar Caché <span style="font-size:9px;color:gray;">F5</span></a>
+                    <div class="win-menu-separator"></div>
+                    <a href="#" class="win-menu-item" onclick="logout()">Cerrar Sesión</a>
+                </div>
+            </div>
+            <div class="win-menubar-item">
+                Módulos (M)
+                <div class="win-menu-dropdown">
+                    <a href="#" class="win-menu-item" onclick="openForm('frmInventario')">Inventario de Productos</a>
+                    <a href="#" class="win-menu-item" onclick="openForm('frmFacturacion')">Facturar Venta</a>
+                    <a href="#" class="win-menu-item" onclick="openForm('frmClientes')">Directorio Clientes</a>
+                    <a href="#" class="win-menu-item" onclick="openForm('frmProveedores')">Registro Proveedores</a>
+                </div>
+            </div>
+            <div class="win-menubar-item">
+                Herramientas (H)
+                <div class="win-menu-dropdown">
+                    <a href="#" class="win-menu-item" onclick="openForm('frmConfiguracion')">Configuración Empresa</a>
+                    <a href="#" class="win-menu-item" onclick="openForm('frmAuditoria')">Log de Auditoría</a>
+                </div>
+            </div>
+            <div class="win-menubar-item">
+                Ayuda (Y)
+                <div class="win-menu-dropdown">
+                    <a href="#" class="win-menu-item" onclick="showDialog('Acerca de', 'Basic ERP v6.0<br>Estilo Microsoft Visual Basic 6.0<br>Google Deepmind Advanced Agentic Coding 2026', 'info')">Acerca de Basic ERP...</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Herramientas (Toolbar) -->
+        <div class="win-toolbar">
+            <button class="win-toolbar-btn" title="Refrescar Datos" onclick="loadInitialData(); showToast('Datos actualizados.');">🔄</button>
+            <div class="win-toolbar-separator"></div>
+            <button class="win-toolbar-btn" title="Inventario de Productos" onclick="openForm('frmInventario')">📦</button>
+            <button class="win-toolbar-btn" title="Facturar Venta" onclick="openForm('frmFacturacion')">🧾</button>
+            <button class="win-toolbar-btn" title="Directorio Clientes" onclick="openForm('frmClientes')">👥</button>
+            <button class="win-toolbar-btn" title="Registro Proveedores" onclick="openForm('frmProveedores')">🚚</button>
+            <div class="win-toolbar-separator"></div>
+            <button class="win-toolbar-btn" title="Configuración Empresa" onclick="openForm('frmConfiguracion')">⚙️</button>
+            <button class="win-toolbar-btn" title="Log de Auditoría" onclick="openForm('frmAuditoria')">📂</button>
+            <div class="win-toolbar-separator"></div>
+            <button class="win-toolbar-btn" title="Cerrar Sesión" onclick="logout()">🚪</button>
+        </div>
+
+        <!-- Cuerpo del IDE -->
+        <div id="ide-body">
+            
+            <!-- Caja de Herramientas (Toolbox) izquierda -->
+            <div class="win-toolbox">
+                <div class="win-toolbox-title">Toolbox</div>
+                <div class="win-toolbox-grid">
+                    <!-- Flecha / Pointer -->
+                    <button class="win-toolbox-btn active" title="Pointer" data-form="cursor">↖</button>
+                    <!-- Timer -->
+                    <button class="win-toolbox-btn" title="Timer" onclick="showToast('Timer: Intervalo de red establecido en 30s.')">⏱</button>
+                    <!-- Formulario Inventario -->
+                    <button class="win-toolbox-btn" title="Inventario Form (frmInventario)" data-form="frmInventario">📦</button>
+                    <!-- Formulario Factura -->
+                    <button class="win-toolbox-btn" title="Facturación Form (frmFacturacion)" data-form="frmFacturacion">🧾</button>
+                    <!-- Formulario Clientes -->
+                    <button class="win-toolbox-btn" title="Clientes Form (frmClientes)" data-form="frmClientes">👥</button>
+                    <!-- Formulario Proveedores -->
+                    <button class="win-toolbox-btn" title="Proveedores Form (frmProveedores)" data-form="frmProveedores">🚚</button>
+                    <!-- Formulario Configuración -->
+                    <button class="win-toolbox-btn" title="Configuración Form (frmConfiguracion)" data-form="frmConfiguracion">⚙️</button>
+                    <!-- Formulario Auditoría -->
+                    <button class="win-toolbox-btn" title="Auditoría Form (frmAuditoria)" data-form="frmAuditoria">📂</button>
+                </div>
+            </div>
+
+            <!-- Área de Trabajo MDI Central -->
+            <div id="mdi-workspace">
+                <!-- Las ventanas de formularios flotantes se inyectarán aquí -->
+            </div>
+
+            <!-- Paleta de Propiedades Derecha -->
+            <div class="win-properties">
+                <div class="win-properties-title">
+                    <span id="properties-win-name">Properties - Form1</span>
+                    <span>×</span>
+                </div>
+                <div class="win-properties-tabs">
+                    <div class="win-properties-tab active">Alphabetic</div>
+                    <div class="win-properties-tab">Categorized</div>
+                </div>
+                <div class="win-properties-grid" id="properties-grid">
+                    <!-- Se llena dinámicamente mediante JS -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Barra de Estado Inferior -->
+        <div class="win-statusbar">
+            <div class="win-status-panel" id="status-user">Usuario: Invitado</div>
+            <div class="win-status-panel" id="status-server">Base de Datos: Desconectado</div>
+            <div class="win-status-panel fixed" id="status-clock">00:00:00</div>
+        </div>
+
+    </div>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="js/app.js"></script>
+</body>
+</html>

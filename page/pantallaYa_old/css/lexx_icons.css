@@ -1,0 +1,10 @@
+.lexx {
+    list-style: none;
+    display: inline-flex;
+}
+
+.lexx svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}

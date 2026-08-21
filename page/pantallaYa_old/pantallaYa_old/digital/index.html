@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PantallaYA</title>
+    <link rel="shortcut icon" href="../img/icono.png" type="image/png">
+    <link rel="stylesheet" href="../css/utility.css">
+    <link rel="stylesheet" href="../css/lexx_icons.css">
+    <link rel="stylesheet" href="../css/lexx.css">
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="../css/modal-wizard.css">
+    <link rel="stylesheet" href="../css/config-premium.css">
+    <link rel="stylesheet" href="../css/auth-premium.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Sidebar Overlay para móviles -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">
+                    <img src="../img/icono.png" alt="Lexx">
+                </span>
+                <span class="logo-text">PantallaYA</span>
+            </div>
+
+            <hr>
+
+            <nav class="menu">
+
+                <!-- Nodo: Campañas -->
+                <div class="tree-node open">
+                    <button class="tree-parent" onclick="toggleNode(this)">
+                        <span class="tree-icon"><i class="lexx lexx_folder"></i></span>
+                        <span class="tree-label">Campañas</span>
+                        <i class="lexx lexx_chevron_down tree-chevron"></i>
+                    </button>
+                    <div class="tree-children">
+                        <div class="tree-branch">
+                            <a href="#" class="tree-leaf active" onclick="event.preventDefault(); CrearModal.open()">
+                                <span class="tree-icon"><i class="lexx lexx_plus"></i></span>
+                                <span>Crear campaña</span>
+                            </a>
+                            <!-- <a href="#" class="tree-leaf" onclick="event.preventDefault(); ProgramacionModal.open()">
+                                <span class="tree-icon"><i class="lexx lexx_clock"></i></span>
+                                <span>Programación</span>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo: Contenido -->
+                <div class="tree-node open">
+                    <button class="tree-parent" onclick="toggleNode(this)">
+                        <span class="tree-icon"><i class="lexx lexx_folder"></i></span>
+                        <span class="tree-label">Contenido</span>
+                        <i class="lexx lexx_chevron_down tree-chevron"></i>
+                    </button>
+                    <div class="tree-children">
+                        <div class="tree-branch">
+                            <a href="#" class="tree-leaf" onclick="event.preventDefault(); BibliotecaModal.open()">
+                                <span class="tree-icon"><i class="lexx lexx_folder_open"></i></span>
+                                <span>Biblioteca</span>
+                            </a>
+                            <a href="#" class="tree-leaf" onclick="event.preventDefault(); ImagenesModal.open()">
+                                <span class="tree-icon"><i class="lexx lexx_upload"></i></span>
+                                <span>Subir contenido</span>
+                                <span class="tree-badge" id="campaign-badge">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo: Pantallas (sin hijos) -->
+                <!-- <div class="tree-node">
+                    <button class="tree-parent no-children" onclick="PantallasModal.open()">
+                        <span class="tree-icon"><i class="lexx lexx_license"></i></span>
+                        <span class="tree-label">Pantallas</span>
+                    </button>
+                </div> -->
+
+                <!-- Items raíz -->
+                <div class="tree-node">
+                    <button class="tree-parent no-children" onclick="UsuariosModal.open()">
+                        <span class="tree-icon"><i class="lexx lexx_user_outline"></i></span>
+                        <span class="tree-label">Usuarios</span>
+                    </button>
+                </div>
+                <div class="tree-node">
+                    <button class="tree-parent no-children" onclick="ConfiguracionModal.open()">
+                        <span class="tree-icon"><i class="lexx lexx_cog"></i></span>
+                        <span class="tree-label">Configuración</span>
+                    </button>
+                </div>
+
+            </nav>
+
+
+        </aside>
+
+        <!-- ═══ MODAL GLOBAL SHELL ═══ -->
+        <div id="modal-overlay" class="modal-overlay">
+            <div id="modal-box" class="modal-box" data-size="md">
+                <div class="modal-header">
+                    <h2 id="modal-title" class="modal-title"></h2>
+                    <button id="modal-close" class="modal-close" aria-label="Cerrar">✕</button>
+                </div>
+                <div id="modal-body" class="modal-body"></div>
+                <div id="modal-footer" class="modal-footer"></div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <main class="main-content">
+
+            <div class="content-wrapper" style="position: relative;">
+                <!-- Top card -->
+                <div class="top-card">
+                    <button class="new-btn mobile-only" style="padding: 8px 10px;" onclick="toggleSidebar()"
+                        aria-label="Abrir menú">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <button class="location-btn">Balcón de Armenia</button>
+                    <div class="top-card-divider desktop-only"></div>
+                    <button class="btn-presentar" onclick="CompartirModal.open()">
+                        <i class="lexx lexx_share"></i> <span class="btn-text">Compartir</span>
+                    </button>
+                    <button class="new-btn desktop-only" style="display: none;" onclick="CrearModal.open()">
+                        <span class="plus">+</span>
+                        Crear nuevo
+                    </button>
+                </div>
+
+                <!-- Image slider -->
+                <div class="tablet-frame">
+                    <div class="tablet-camera"></div>
+
+                    <div class="tablet-screen">
+                        <!-- Boot Screen (Animación de Encendido) -->
+                        <div class="tablet-boot-screen">
+                            <div class="boot-logo-wrapper">
+                                <svg class="boot-svg" viewBox="0 0 100 100" width="80" height="80" fill="none"
+                                    stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="10" y="25" width="80" height="50" rx="6" class="svg-path svg-monitor" />
+                                    <line x1="20" y1="25" x2="30" y2="25" stroke-width="2" class="svg-path svg-monitor" />
+                                    <polygon points="46,40 46,60 61,50" class="svg-path svg-play" />
+                                </svg>
+                                <div class="boot-text">PantallaYA</div>
+                            </div>
+                        </div>
+
+                        <!-- Widgets Globales -->
+                        <div class="top-widgets">
+                            <div class="widget-left">
+                                <div class="time-widget" id="clock">--:--</div>
+                                <div class="date-widget" id="date">--</div>
+                            </div>
+                            <div class="weather-widget">
+                                <span>☀️</span> 24°C
+                            </div>
+                        </div>
+
+                        <!-- Slider de Contenido -->
+                        <div class="slider" id="mainSlider">
+                            <!-- Los slides se inyectan dinámicamente o se muestra el estado vacío -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-hint">
+                    Recomendación: Usa imágenes en formato horizontal (ej. 1280x800 px o 1920x1080 px).
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/lexx.js"></script>
+    <script src="../js/lexx_icons.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="modals/biblioteca.js"></script>
+    <script src="modals/images.js"></script>
+    <script src="modals/crear.js"></script>
+    <script src="modals/compartir.js"></script>
+    <script src="modals/usuarios.js"></script>
+    <script src="modals/configuracion.js"></script>
+    <script src="../js/widgets.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

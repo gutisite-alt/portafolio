@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantallaYa - Reproductor Local</title>
+    <link rel="shortcut icon" href="../img/icono.png" type="image/png">
+    <link rel="stylesheet" href="../css/utility.css">
+    <link rel="stylesheet" href="../css/tablet.css">
+</head>
+
+<body>
+    <div id="start-overlay">
+        <div class="start-content">
+            <div class="start-logo">
+                <img src="../img/icono.png" alt="Logo">
+                <span class="start-logo-text">PantallaYA</span>
+            </div>
+            <button class="start-btn">
+                <svg class="start-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+                Iniciar Reproducción
+            </button>
+            <p class="start-hint">Toca para entrar en pantalla completa</p>
+        </div>
+    </div>
+
+    <!-- Widgets Globales -->
+    <div class="top-widgets">
+        <div class="widget-left">
+            <div class="time-widget" id="clock">--:--</div>
+            <div class="date-widget" id="date">--</div>
+        </div>
+        <div class="weather-widget">
+            <span>☀️</span> 24°C
+        </div>
+    </div>
+
+    <div id="slider" class="slider">
+        <!-- Loader / Slides -->
+    </div>
+
+    <script src="../js/lexx.js"></script>
+    <script src="../js/widgets.js"></script>
+    <script src="../js/tablet.js"></script>
+</body>
+
+</html>

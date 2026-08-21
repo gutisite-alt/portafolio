@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Control de pliegos, hojas imperfectas y cuadros aprovechables">
+  <title>Control de Corte Adhesivo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brandmark">CC</div>
+    <div>
+      <p class="eyebrow">CONTROL DE PRODUCCIÓN</p>
+      <h1>Corte de papel adhesivo</h1>
+    </div>
+    <div class="rule"><span>1 pliego</span><b>8 hojas</b><span>320 cuadros</span></div>
+  </header>
+
+  <main class="dashboard">
+    <!-- Fila de Tarjetas Estadísticas Superiores -->
+    <section class="summary-section">
+      <div class="summary-row">
+        <div><span>Pliegos</span><b id="totalSheets">0</b></div>
+        <div><span>Procesados</span><b id="totalProcessed">0</b></div>
+        <div><span>Descartados</span><b id="totalDiscarded">0</b></div>
+        <div class="highlight"><span>Aprovechables</span><b id="totalUsable">0</b></div>
+      </div>
+    </section>
+
+    <!-- Historial de cortes y Botón de Registro -->
+    <section class="history panel">
+      <div class="history-head">
+        <div>
+          <span class="step">01</span>
+          <div>
+            <h2>Historial de cortes</h2>
+            <p>Consulta la producción histórica de cortes.</p>
+          </div>
+        </div>
+        
+        <div class="actions">
+          <label>Filtrar por fecha<input id="filterDate" type="date"></label>
+          <button id="clearFilter" class="clear" type="button" hidden>Limpiar</button>
+          <button id="openModalBtn" class="save" type="button" style="margin-top: 0; min-height: 45px; padding: 0 20px;">+ Nuevo Registro</button>
+        </div>
+      </div>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Pliegos</th>
+              <th>Hojas</th>
+              <th>Imperfectas</th>
+              <th>Descartados</th>
+              <th>Aprovechables</th>
+              <th>Motivo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ventana Modal de Registro -->
+  <div id="registerModal" class="modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Nuevo registro de corte</h2>
+        <button id="closeModalBtn" class="close-modal-btn" aria-label="Cerrar modal">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <!-- Formulario (Izquierda/Arriba) -->
+        <div class="panel register-panel" style="border: 0; box-shadow: none; padding: 0;">
+          <div class="fields">
+            <label>Fecha del corte<input id="cutDate" type="date"></label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <label>Pliegos
+                <div class="counter">
+                  <button id="subtractSheet" type="button" aria-label="Restar pliego">−</button>
+                  <input id="sheetCount" type="tel" inputmode="numeric" pattern="[0-9]*" value="1">
+                  <button id="addSheet" type="button" aria-label="Sumar pliego">+</button>
+                </div>
+              </label>
+              <label>Hojas adicionales
+                <div class="counter">
+                  <button id="subtractExtra" type="button" aria-label="Restar hoja adicional">−</button>
+                  <input id="extraSheets" type="tel" inputmode="numeric" pattern="[0-9]*" value="0">
+                  <button id="addExtra" type="button" aria-label="Sumar hoja adicional">+</button>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <div><h3>Hojas imperfectas</h3><p>Escribe los números de las hojas defectuosas separados por comas.</p></div>
+            <span id="damagedCounter">0 descartadas</span>
+          </div>
+          <input id="damagedInput" placeholder="Ejemplo: 5, 12, 104" style="margin-bottom: 20px;">
+
+          <div class="fields lower-fields">
+            <label>Motivo principal
+              <select id="reason">
+                <option value="">Sin especificar</option>
+                <option>Error de corte</option><option>Desalineación</option>
+                <option>Material defectuoso</option><option>Calibración</option>
+                <option>Manipulación</option><option>Otro</option>
+              </select>
+            </label>
+            <label>Observación<input id="note" placeholder="Opcional"></label>
+          </div>
+        </div>
+
+        <!-- Resultados en tiempo real (Derecha/Abajo) -->
+        <div class="panel result-panel" style="border: 0; box-shadow: none; padding: 0; position: static;">
+          <div class="result-primary">
+            <span>Cuadros aprovechables</span>
+            <strong id="usable">320</strong>
+            <small id="goodSections">8 hojas buenas × 40</small>
+          </div>
+          <div class="metrics" style="margin: 15px 0;">
+            <div><span>Procesados</span><b id="processed">320</b></div>
+            <div class="bad"><span>Descartados</span><b id="discarded">−0</b></div>
+            <div><span>Hojas procesadas</span><b id="processedSections">8</b></div>
+            <div><span>Desperdicio</span><b id="waste">0,0%</b></div>
+          </div>
+          <div class="waste-bar" style="margin-bottom: 10px;"><span id="wasteBar"></span></div>
+          <p id="resultNote" class="result-note">Todas las hojas están aprovechables.</p>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="cancelRecord" class="clear" type="button" style="min-height: 52px; font-weight: 700; width: auto; padding: 0 30px;">Cancelar</button>
+        <button id="saveRecord" class="save" type="button" style="margin-top: 0; width: auto; padding: 0 35px;">Guardar registro <span>→</span></button>
+      </footer>
+      
+      <div id="toast" class="toast" hidden style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%;">Registro guardado correctamente</div>
+    </div>
+  </div>
+
+  <footer>Los datos quedan guardados en este dispositivo.</footer>
+  <script src="app.js"></script>
+</body>
+</html>

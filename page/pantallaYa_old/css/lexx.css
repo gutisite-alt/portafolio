@@ -1,0 +1,1397 @@
+*,
+.Lexx_AutoCompleteBox {
+    box-sizing: border-box
+}
+
+input::-ms-clear,
+input::-ms-reveal {
+    display: none
+}
+
+.lexx_noselect,
+.sortable_class_noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.lexx_color_editable_danger,
+.lexx_color_editable_success,
+.lexx_color_editable_warning {
+    border: 1px solid transparent !important
+}
+
+.lexx_color_editable_danger {
+    outline: #ff4242 solid 2px !important;
+    background: #ff000005 !important
+}
+
+.lexx_color_editable_warning {
+    outline: #ff862a solid 2px !important;
+    background: #ff862a0d !important
+}
+
+.lexx_color_editable_success {
+    outline: #41ddae solid 2px !important;
+    background: #35d3a30d !important
+}
+
+.Lexx_ocultar,
+.lexx_hide {
+    display: none !important
+}
+
+.lexx_show {
+    display: block !important
+}
+
+.alert_Mensaje_Contenedor {
+    bottom: 0;
+    position: fixed;
+    right: 0
+}
+
+.alert_Mensaje_Mensaje {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    overflow: hidden;
+    border-radius: .45em;
+    margin: 1em;
+    padding: 1em;
+    max-width: 300px
+}
+
+.alert_Icon_Span {
+    display: none
+}
+
+.alert_Text_Info {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.3
+}
+
+.alert_btn_close {
+    margin: 0
+}
+
+.alert_btn_close i {
+    display: flex;
+    cursor: pointer
+}
+
+.alert_Mensaje_Mensaje_Alert {
+    background-color: #e9bb4f
+}
+
+.alert_Mensaje_Mensaje_Alert>span {
+    background-color: #e49319
+}
+
+.alert_Mensaje_Mensaje_Alert>span>span::before {
+    content: "!";
+    font-size: 18px
+}
+
+.alert_Mensaje_Mensaje_Error {
+    background-color: #e1536a
+}
+
+.alert_Mensaje_Mensaje_Error>span {
+    background-color: #982e3f
+}
+
+.alert_Mensaje_Mensaje_Error>span>span::before {
+    content: "X"
+}
+
+.alert_Mensaje_Mensaje_Info {
+    background-color: #5066e1
+}
+
+.alert_Mensaje_Mensaje_Info>span {
+    background-color: #475bcf
+}
+
+.alert_Mensaje_Mensaje_Info>span>span::before {
+    content: "ℹ";
+    font-size: 18px
+}
+
+.alert_Mensaje_Mensaje_Ok {
+    background-color: #45df9f
+}
+
+.alert_Mensaje_Mensaje_Ok>span {
+    background: #31d893
+}
+
+.alert_Mensaje_Mensaje_Ok>span>span::before {
+    content: "✓"
+}
+
+@keyframes alert_Mensaje_Slide {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes Alert_Mensaje_Rotate {
+    from {
+        transform: rotate(360deg)
+    }
+
+    to {
+        transform: rotate(0)
+    }
+}
+
+.Lexx_Ventana_Cargando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8)
+}
+
+.Lexx_Ventana_Cargando_overlay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%
+}
+
+.Lexx_Ventana_Cargando_center {
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 300px;
+    color: #fff;
+    overflow: inherit !important
+}
+
+.Lexx_Ventana_Cargando_Progreso {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(85, 93, 103, .88);
+    border-radius: 20px;
+    margin-top: 1.8em;
+    position: relative
+}
+
+.Lexx_Ventana_Cargando_Progreso_Bar {
+    text-align: center
+}
+
+.Lexx_Ventana_Cargando_Progreso_Mensaje {
+    background: #4e5762;
+    background-image: linear-gradient(to right, #3c4b56 0, #46595f 100%);
+    padding: .8em;
+    border-radius: 3px;
+    top: 25px;
+    display: inline-block;
+    color: #fff;
+    left: 0;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+    position: relative;
+    max-width: 220px;
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .28);
+    animation-name: Lexx_Cargando_Texto;
+    animation-duration: .4s
+}
+
+.Lexx_Ventana_Cargando_Animacion,
+.Lexx_Ventana_Cargando_Animacion::after {
+    background-image: linear-gradient(to right, #43e97b 0, #38f9d7 100%);
+    position: absolute
+}
+
+.Lexx_Ventana_Cargando_Progreso_Mensaje:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 6px 6px;
+    border-color: #434c58 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+@keyframes Lexx_Cargando_Texto {
+    from {
+        opacity: 0;
+        top: 33px
+    }
+
+    to {
+        opacity: 1;
+        top: 25px
+    }
+}
+
+.Lexx_Ventana_Cargando_Animacion {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    border-radius: 20px;
+    transition: width .4s;
+    user-select: none
+}
+
+.Lexx_Ventana_Cargando_Animacion::after {
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px;
+    z-index: 1
+}
+
+.Lexx_Ventana_Cargando_spinner_container {
+    position: relative;
+    width: 200px;
+    margin: auto;
+    user-select: none
+}
+
+.Lexx_Ventana_Cargando_spinner {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.Lexx_Ventana_Cargando_spinner_animacion {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    margin: 0 .4em;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: 1s ease-in-out infinite both Lexx-cargando;
+    animation: 1s ease-in-out infinite both Lexx-cargando
+}
+
+.Lexx_Ventana_Cargando_spinner_animacion:first-child {
+    -webkit-animation-delay: -.32s;
+    animation-delay: -.32s
+}
+
+.Lexx_Ventana_Cargando_spinner_animacion:nth-child(2) {
+    -webkit-animation-delay: -.16s;
+    animation-delay: -.16s
+}
+
+@keyframes Lexx-cargando {
+
+    0%,
+    100% {
+        transform: scale(0)
+    }
+
+    25% {
+        transform: scale(.5) rotate(0)
+    }
+
+    50% {
+        transform: scale(1) rotate(180deg)
+    }
+
+    75% {
+        transform: scale(.5) rotate(360deg)
+    }
+}
+
+.Lexx_Global_Select_Placeholder:not(:checked) {
+    color: #798996
+}
+
+.Lexx_Global_Editable_Contenido[placeholder]:empty::before {
+    content: attr(placeholder);
+    color: #999;
+    display: block;
+    font-size: 13px;
+    user-select: none;
+    pointer-events: none
+}
+
+@keyframes Lexx_Animacion_Up {
+    from {
+        transform: translate3d(0, 20px, 0)
+    }
+
+    to {
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes Lexx_Animacion_Down {
+    from {
+        transform: translate3d(0, -10px, 0)
+    }
+
+    to {
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+.Lex_CalendarioDbl_Container,
+.Lex_Calendario_Container {
+    width: 275px;
+    background-color: initial;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 4px;
+    user-select: none;
+    animation: .2s lex_Calendario_Fade;
+    z-index: 9999;
+    outline: 0 !important
+}
+
+.Lex_Calendario_Header {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    gap: 20px;
+    background-color: #000;
+    padding: 0 .5em
+}
+
+.Lex_Calendario_Navegacion {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2em .3em;
+    border-radius: .2em;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.3em;
+    vertical-align: middle;
+    transition: .4s
+}
+
+.Lex_Calendario_Seleccion {
+    flex: 1 1 auto;
+    outline: 0;
+    border: none;
+    text-align-last: left
+}
+
+.Lex_Calendario_Contenedor_Tabla {
+    padding-bottom: .4em
+}
+
+.Lex_Calendario_Tabla {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 14px
+}
+
+.Lex_Calendario_Dias_Semana>th {
+    padding: .5em;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize
+}
+
+.Lex_Calendario_Dias_Numero>td {
+    position: relative;
+    cursor: pointer;
+    font-size: 12px
+}
+
+.Lex_Calendario_Dias_Numero>td>span {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center
+}
+
+.Lex_Calendario_Pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    margin-top: .2em
+}
+
+.Lex_Calendario_Pie_Boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: .5s
+}
+
+.Lex_Calendario_Navegacion_Next,
+.Lex_Calendario_Navegacion_Pre,
+.Lexx__Paginador__Global span i {
+    font-size: 18px
+}
+
+.Lex_Calendario_Theme_Dark {
+    background: #222f3b;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .45);
+    border: 1px solid rgba(140, 151, 157, .07)
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header {
+    color: #fff;
+    background-color: #222f3b
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Navegacion {
+    background-color: rgb(43 60 75)
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Navegacion:hover,
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Pie .Lex_Calendario_Hoy {
+    background-color: #1143c3
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Seleccion {
+    background-color: #222f3b;
+    color: #fff;
+    font-size: 14px
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Tabla {
+    color: #fff
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dias_Numero td span:hover {
+    background: #283846
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dias_Hiden {
+    color: #596875;
+    font-weight: 600
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dia_Activo {
+    background-color: #2768ef;
+    box-shadow: 0 0 100px
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dia_Activo:hover {
+    background-color: #2768ef
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dia_Selecionado,
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Dia_Selecionado:hover {
+    background-color: #3e4d5b
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Pie,
+.Lex_Calendario_Theme_Light .Lex_Calendario_Pie {
+    background-color: #222f3b
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Pie .Lex_Calendario_Pie_Boton {
+    color: #fff;
+    background-color: #344858
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Cerrar:hover {
+    box-shadow: inset 100px 50px rgba(0, 0, 0, .1)
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Seleccion::-webkit-scrollbar-track {
+    border-radius: none
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Seleccion::-webkit-scrollbar {
+    width: 7px
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Seleccion::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255, .25);
+    border-radius: 30px
+}
+
+.Lex_Calendario_Theme_Dark .Lex_Calendario_Header .Lex_Calendario_Seleccion::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 255, 255, .35)
+}
+
+.Lex_Calendario_Theme_Light {
+    background: #fff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .55), 0 0 1px rgba(162, 182, 198, .6);
+    border: 0
+}
+
+.Lexx_Global_Respuesta_Email_Caducado::before,
+.Lexx_Global_Respuesta_Email_Correcto::before {
+    border-radius: 50em;
+    position: absolute;
+    top: -34px;
+    left: -34px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 35px;
+    user-select: none;
+    text-align: center
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Header {
+    color: #66717a;
+    background-color: #fff
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Header .Lex_Calendario_Navegacion {
+    background-color: #edf2f7
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Header .Lex_Calendario_Navegacion:hover,
+.Lex_Calendario_Theme_Light .Lex_Calendario_Pie .Lex_Calendario_Hoy {
+    background-color: #10d8c2;
+    color: #fff
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Header .Lex_Calendario_Seleccion {
+    background-color: #fff;
+    color: #66717a;
+    font-size: 14px
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Tabla {
+    color: #68797e
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dias_Numero td span:hover {
+    background: #f7f8f9
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dias_Hiden {
+    color: #bbd2d2
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dia_Activo {
+    background-color: rgb(16 216 194);
+    box-shadow: 0 0 100px;
+    color: rgb(255 255 255)
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dia_Activo:hover {
+    background-color: rgb(16 216 194) !important
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dia_Selecionado {
+    background-color: #d7fffa;
+    color: #1e9e90
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Dia_Selecionado:hover {
+    background-color: #d7fffa !important
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Pie .Lex_Calendario_Pie_Boton {
+    background-color: #ecf0f1
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Cerrar {
+    color: #7f8e94
+}
+
+.Lex_Calendario_Theme_Light .Lex_Calendario_Cerrar:hover {
+    box-shadow: inset 100px 50px rgba(0, 0, 0, .01)
+}
+
+.Lex_CalendarioDbl_Container {
+    width: unset
+}
+
+.Lexx_Global_Respuesta_Email_Clave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: #2a323c
+}
+
+.Lexx_Global_Respuesta_Email_Logo_Contenedor {
+    margin: 1em 0;
+    user-select: none
+}
+
+.Lexx_Global_Respuesta_Email_Logo {
+    max-width: 120px;
+    vertical-align: middle;
+    object-fit: cover
+}
+
+.Lexx_Global_Respuesta_Email_Contenedor {
+    max-width: 85%;
+    background: #323c48;
+    border-radius: 10px;
+    padding: 2.5em;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25)
+}
+
+.Lexx_Global_Respuesta_Email_Clave span {
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    text-align: center
+}
+
+.Lexx_Global_Respuesta_Email_Correcto::before {
+    content: "\2713";
+    border: 4px solid #2a323c;
+    background: #36c6a5
+}
+
+.Lexx_Global_Respuesta_Email_Caducado::before {
+    content: "\0021";
+    border: 4px solid #2a323c;
+    background: #ec8a36
+}
+
+.Lexx_Global_Respuesta_Email_Bloqueado::before {
+    content: "\00D7";
+    position: absolute;
+    top: -34px;
+    left: -34px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    border-radius: 50em;
+    border: 4px solid #2a323c;
+    background: rgb(176 79 72);
+    font-size: 35px;
+    user-select: none
+}
+
+.Lexx_ToolTipTextBox_Show_LeftBottomFP>div::after,
+.Lexx_ToolTipTextBox_Show_LeftTopFP::after,
+.Lexx_ToolTipTextBox_Show_RightBottomFP::after,
+.Lexx_ToolTipTextBox_Show_RightTopFP::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: #000 transparent;
+    width: 0;
+    z-index: 1;
+    display: none
+}
+
+.Lexx_Global_Respuesta_Email_Footer {
+    margin: 1.5em 0;
+    color: #fff;
+    user-select: none
+}
+
+.Lexx_Global_Respuesta_Email_Footer p {
+    color: rgb(90 103 119);
+    font-size: 13.5px;
+    font-weight: 700
+}
+
+.Lexx_Global_Respuesta_Email_Footer p a {
+    color: #04a2b3;
+    animation: 1s lex_Calendario_Fade
+}
+
+@keyframes lex_Calendario_Fade {
+    from {
+        transform: translateY(-3px)
+    }
+
+    to {
+        transform: translateY(0)
+    }
+}
+
+.Lexx_ToolTipTextBox {
+    position: absolute;
+    width: auto;
+    max-width: 280px;
+    height: auto
+}
+
+.Lexx_ToolTipTextBox>div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+    background: #383c41;
+    backdrop-filter: blur(13px);
+    color: #fff;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 25px 50px -12px #00000080
+}
+
+.Lexx_ToolTipTextBox_Hide {
+    opacity: 0;
+    visibility: hidden
+}
+
+.Lexx_ToolTipTextBox_Show_LeftBottom,
+.Lexx_ToolTipTextBox_Show_LeftTop,
+.Lexx_ToolTipTextBox_Show_RightBottom,
+.Lexx_ToolTipTextBox_Show_RighttTop {
+    opacity: 1;
+    visibility: visible
+}
+
+.Lexx_ToolTipTextBox_Show_LeftTopFP::after {
+    border-width: 12px 12px 0;
+    bottom: -7px;
+    left: 15px
+}
+
+.Lexx_ToolTipTextBox_Show_LeftBottomFP>div::after {
+    border-width: 0 12px 12px;
+    top: -7px;
+    left: 15px
+}
+
+.Lexx_ToolTipTextBox_Show_RightTopFP::after {
+    border-width: 12px 12px 0;
+    bottom: -11px;
+    right: 15px
+}
+
+.Lexx_ToolTipTextBox_Show_RightBottomFP::after {
+    border-width: 0 12px 12px;
+    top: -11px;
+    right: 15px
+}
+
+.Auto_Complete_Base,
+.lexx_data_tooltip,
+.lexx_window_confirm_block_copy {
+    position: relative
+}
+
+.lexx_data_tooltip::after {
+    content: attr(aria-tool);
+    position: absolute;
+    z-index: 999;
+    border-radius: .45em;
+    padding: .55em .75em;
+    width: max-content;
+    background: linear-gradient(45deg, #2e384d, #262e3f);
+    font-size: 12px;
+    display: none
+}
+
+.lexx_data_tooltip.bottom_center::after {
+    top: 100%;
+    margin-top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: .2s alternate slide_tool_bottom
+}
+
+.lexx_data_tooltip.top_center::after {
+    bottom: 100%;
+    margin-bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: .2s alternate slide_tool_top
+}
+
+.lexx_data_tooltip.bottom_right::after {
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    animation: .2s alternate slide_tool_rf
+}
+
+.lexx_data_tooltip.bottom_left::after {
+    left: 0;
+    top: 100%;
+    margin-top: 5px;
+    animation: .2s alternate slide_tool_rf
+}
+
+.lexx_data_tooltip.top_right::after {
+    right: 0;
+    bottom: 100%;
+    margin-bottom: 5px;
+    animation: .2s alternate slide_tool_trf
+}
+
+.lexx_data_tooltip.top_left::after {
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 5px;
+    animation: .2s alternate slide_tool_trf
+}
+
+.lexx_data_tooltip.center_right::after {
+    right: 100%;
+    margin-right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: .2s alternate slide_tool_cr
+}
+
+.lexx_data_tooltip.center_left::after {
+    left: 100%;
+    margin-left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: .2s alternate slide_tool_cl
+}
+
+.lexx_data_tooltip:hover::after {
+    display: block
+}
+
+@keyframes slide_tool_bottom {
+    0% {
+        transform: translateX(-50%) translateY(-5px)
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0)
+    }
+}
+
+@keyframes slide_tool_top {
+    0% {
+        transform: translateX(-50%) translateY(5px)
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0)
+    }
+}
+
+@keyframes slide_tool_rf {
+    0% {
+        transform: translateY(-5px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes slide_tool_trf {
+    0% {
+        transform: translateY(5px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes slide_tool_cr {
+    0% {
+        transform: translateY(-50%) translateX(5px)
+    }
+
+    100% {
+        transform: translateY(-50%) translateY(0)
+    }
+}
+
+@keyframes slide_tool_cl {
+    0% {
+        transform: translateY(-50%) translateX(-5px)
+    }
+
+    100% {
+        transform: translateY(-50%) translateY(0)
+    }
+}
+
+.Lexx_AutoCompleteBox {
+    position: absolute;
+    padding: .8em;
+    max-height: 180px;
+    overflow-y: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    user-select: none;
+    overflow-x: hidden;
+    box-shadow: 0 8px 6px -6px #00000099, 0 25px 35px #00000073
+}
+
+.Lexx_AutoCompleteBox::before {
+    content: "Resultado de búsqueda";
+    padding: .75em;
+    font-size: 11px;
+    font-style: italic;
+    color: #9aa3ac;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    pointer-events: none;
+    display: none
+}
+
+.Lexx_AutoCompleteBox>div {
+    position: relative;
+    padding: .75em 40px .75em .75em;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 5px;
+    text-align: left;
+    margin: 0 !important
+}
+
+.Lexx_AutoCompleteBox>div:hover {
+    background: rgba(83, 98, 113, .13) !important
+}
+
+.Lexx_AutoCompleteBox>div:after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 17px;
+    opacity: .9;
+    transform: translateY(-50%);
+    display: none
+}
+
+.Auto_Complete_Base .Lexx_AutoCompleteBox {
+    background: #1c252d;
+    color: #fff;
+    z-index: 1;
+    width: inherit
+}
+
+.Auto_Complete_Base.top .Lexx_AutoCompleteBox {
+    bottom: 100%
+}
+
+.sortable_class_active {
+    border-style: dotted;
+    opacity: .4;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    box-shadow: 0 25px 50px 12px rgba(0, 0, 0, .01)
+}
+
+.Lexx__Paginador__Global {
+    gap: 5px
+}
+
+.Lexx__Paginador__Global__Final i,
+.Lexx__Paginador__Global__Siguiente i {
+    transform: rotate(180deg)
+}
+
+.Lexx__Paginador__Global__Contador {
+    border-radius: 3em;
+    background: #0047c0;
+    padding: .25em .85em;
+    font-size: 14px
+}
+
+.Lexx__Paginador__Global__Contador samp {
+    font-size: 14px
+}
+
+.Lexx__Paginador__Global span {
+    display: flex;
+    cursor: pointer
+}
+
+.Lexx__Paginador__Global span:hover {
+    opacity: .78
+}
+
+.lexx_window_confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    background: #1d1f20b0;
+    animation: .3s alternate lexx_confirm_fade
+}
+
+.lexx_window_confirm_overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%
+}
+
+.lexx_window_confirm_container {
+    background: #fff;
+    position: relative;
+    width: 90%;
+    max-width: 460px;
+    color: #333;
+    border-radius: 0;
+    font-family: system-ui;
+    max-height: 90%;
+    box-shadow: 0 0 0 1px transparent;
+    overflow-y: auto
+}
+
+.lexx_window_confirm_container .hide {
+    display: none;
+    margin-bottom: 1em
+}
+
+.lexx_window_confirm_header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5em;
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+    background: #f5f5f5
+}
+
+.lexx_window_confirm_block_copy button i,
+.lexx_window_confirm_title b {
+    font-size: 15px
+}
+
+.lexx_window_confirm_footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    height: 60px;
+    padding: 0 1.5em
+}
+
+.lexx_window_confirm_footer button {
+    padding: 10px 12px;
+    font-size: 12px;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500 !important;
+    font-family: unset;
+    text-transform: uppercase
+}
+
+.lexx_window_confirm_btn_cancel button {
+    background: #cd5c5cc4
+}
+
+.lexx_window_confirm_btn_ok button {
+    background: #30bda2e3
+}
+
+.lexx_window_confirm_info {
+    font-size: unset;
+    padding: 1em 1.5em
+}
+
+.lexx_window_confirm_container span samp {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    animation: .3s alternate icon
+}
+
+.lexx_window_confirm_container span samp i {
+    vertical-align: middle;
+    font-size: 34px
+}
+
+.lexx_window_confirm_container.warning {
+    background: #da9620;
+    color: #fff7d4
+}
+
+.lexx_window_confirm_container.warning span samp i {
+    margin-bottom: 3px
+}
+
+.lexx_window_confirm_container.danger {
+    background: #972b2b;
+    color: #ffd4d4
+}
+
+.lexx_window_confirm_container.success {
+    background: #136052;
+    color: #ecfffc
+}
+
+.lexx_window_confirm_container.warning .lexx_window_confirm_header {
+    background: #c3871f
+}
+
+.lexx_window_confirm_container.danger .lexx_window_confirm_header {
+    background: #882727
+}
+
+.lexx_window_confirm_container.success .lexx_window_confirm_header {
+    background: #11564a
+}
+
+.lexx_window_confirm_container.danger .lexx_window_confirm_btn_cancel button,
+.lexx_window_confirm_container.success .lexx_window_confirm_btn_cancel button,
+.lexx_window_confirm_container.warning .lexx_window_confirm_btn_cancel button {
+    background: #0000002b
+}
+
+.lexx_window_confirm_container.warning .lexx_window_confirm_btn_ok button {
+    background: #fff;
+    color: #da9620
+}
+
+.lexx_window_confirm_container.danger .lexx_window_confirm_btn_ok button {
+    background: #fff;
+    color: #972b2b
+}
+
+.lexx_window_confirm_container.success .lexx_window_confirm_btn_ok button {
+    background: #fff;
+    color: #136052
+}
+
+.lexx_window_confirm_container.warning .lexx_confirm_icon_alert {
+    display: inline-flex;
+    color: #ffe7bd;
+    box-shadow: 0 25px 50px -20px #32200094;
+    border: 1px dashed #ffcc71c9;
+    background: #0000000d
+}
+
+.lexx_window_confirm_container.warning .lexx_window_confirm_center_info button::after {
+    color: #da9620
+}
+
+.lexx_window_confirm_container.danger .lexx_confirm_icon_error {
+    display: inline-flex;
+    color: #ffc0c0;
+    box-shadow: 0 25px 50px -20px #250303a3;
+    border: 1px dashed #fd8a8a5e;
+    background: #00000021
+}
+
+.lexx_window_confirm_container.danger .lexx_window_confirm_center_info button::after {
+    color: #972b2b
+}
+
+.lexx_window_confirm_container.success .lexx_confirm_icon_success {
+    display: inline-flex;
+    color: #d2fff7;
+    box-shadow: 0 25px 50px -20px #001c13bf;
+    border: 1px dashed #75e0cc47;
+    background: #00000017
+}
+
+.lexx_window_confirm_container.success .lexx_window_confirm_center_info button::after {
+    color: #136052
+}
+
+.lexx_window_confirm_container.danger .lexx_window_confirm_subtitle,
+.lexx_window_confirm_container.success .lexx_window_confirm_subtitle,
+.lexx_window_confirm_container.warning .lexx_window_confirm_subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 3px
+}
+
+.lexx_window_confirm_block_copy h3 {
+    font-size: 17px
+}
+
+.lexx_window_confirm_block_copy p {
+    font-size: 16px
+}
+
+.lexx_window_confirm_block_copy p span {
+    opacity: .65
+}
+
+.lexx_window_confirm_block_copy button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #4f565dd1;
+    color: #fff;
+    padding: .45em .8em;
+    border: 1px solid #4f565dd1;
+    border-radius: 3em;
+    font-size: 13px
+}
+
+.lexx_window_confirm_block_copy button:hover {
+    background: #4f565de6
+}
+
+.lexx_window_confirm_center_info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.lexx_window_confirm_center_info button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: .75em;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    background: #ffffff21
+}
+
+.lexx_window_confirm_center_info button:hover {
+    background: #ffffff30
+}
+
+.lexx_window_confirm_center_info button::after {
+    background: #fff;
+    font-weight: 700
+}
+
+.lexx_window_confirm_center_info button.pdf {
+    background: linear-gradient(45deg, #cf5555, #eb5959)
+}
+
+.lexx_window_confirm_center_info button i {
+    font-size: 30px
+}
+
+@keyframes lexx_confirm_fade {
+    0% {
+        visibility: hidden;
+        opacity: 0
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1
+    }
+}
+
+@keyframes icon {
+    0% {
+        transform: scale(0)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+.lexx_capcha_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background: rgba(0, 0, 0, .85);
+    overflow-y: auto
+}
+
+.lexx_capcha_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.lexx_capcha_content iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 580px;
+    overflow: hidden
+}
+
+.lexx_capcha_content button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 1em;
+    background: #3b3d3f;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.lexx_capcha_dialog button i {
+    font-size: 20px;
+    display: flex
+}
+
+@media (max-height:600px) {
+    .lexx_capcha_content iframe {
+        top: 1em;
+        transform: translateX(-50%)
+    }
+}

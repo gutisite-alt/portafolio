@@ -1,0 +1,1147 @@
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/*
+ 
+    ____                     _                     
+   / ___|__ _ _ __ __ _  ___| |_ ___ _ __ ___  ___ 
+  | |   / _` | '__/ _` |/ __| __/ _ \ '__/ _ \/ __|
+  | |__| (_| | | | (_| | (__| ||  __/ | |  __/\__ \
+   \____\__,_|_|  \__,_|\___|\__\___|_|  \___||___/
+                                             
+ 
+   _____ _           
+  |  ___| | _____  __
+  | |_  | |/ _ \ \/ /
+  |  _| | |  __/>  < 
+  |_|   |_|\___/_/\_\
+                     
+ 
+*/
+.flex {
+   display: flex;
+}
+
+.in_flex {
+   display: inline-flex;
+}
+
+.flex_center {
+   align-items: center;
+}
+
+.justify_center {
+   justify-content: center;
+}
+
+.justify_between {
+   justify-content: space-between;
+}
+
+.justify_start {
+   justify-content: start;
+}
+
+.flex_wrap {
+   flex-wrap: wrap;
+}
+
+.justify_end {
+   justify-content: flex-end;
+}
+
+.flex_100 {
+   flex: 1;
+}
+
+.dir_columns {
+   flex-direction: column;
+}
+
+/*
+ 
+    ____      _     _ 
+   / ___|_ __(_) __| |
+  | |  _| '__| |/ _` |
+  | |_| | |  | | (_| |
+   \____|_|  |_|\__,_|
+                      
+ 
+*/
+.grid {
+   display: grid;
+}
+
+.grid_col_1 {
+   grid-template-columns: 1fr;
+}
+
+.grid_col_2 {
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.grid_col_3 {
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid_col_4 {
+   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid_span_2 {
+   grid-column: 2 span;
+}
+
+.grid_span_3 {
+   grid-column: 3 span;
+}
+
+.gap_5 {
+   gap: 0.3125rem;
+}
+
+.gap_10 {
+   gap: 0.625rem;
+}
+
+.gap_16 {
+   gap: 1rem;
+}
+
+.gap_20 {
+   gap: 1.25rem;
+}
+
+.gap_30 {
+   gap: 1.875rem;
+}
+
+.place_center {
+   place-items: center;
+}
+
+/*
+ 
+   ____  _            _       ___     ___       _ _            
+  | __ )| | ___   ___| | __  ( _ )   |_ _|_ __ | (_)_ __   ___ 
+  |  _ \| |/ _ \ / __| |/ /  / _ \/\  | || '_ \| | | '_ \ / _ \
+  | |_) | | (_) | (__|   <  | (_>  <  | || | | | | | | | |  __/
+  |____/|_|\___/ \___|_|\_\  \___/\/ |___|_| |_|_|_|_| |_|\___|
+                                                               
+ 
+*/
+.block {
+   display: block;
+}
+
+.in_block {
+   display: inline-block;
+}
+
+/*
+ 
+      _               _           
+     / \   _ __   ___| |__   ___  
+    / _ \ | '_ \ / __| '_ \ / _ \ 
+   / ___ \| | | | (__| | | | (_) |
+  /_/   \_\_| |_|\___|_| |_|\___/ 
+                                  
+ 
+*/
+.w_100 {
+   width: 100%;
+}
+
+.w_95 {
+   width: 95%;
+}
+
+.w_90 {
+   width: 90%;
+}
+
+.w_50 {
+   width: 50%;
+}
+
+.max_w_auto {
+   width: max-content;
+}
+
+.min_w_0 {
+   min-width: 0;
+}
+
+/*
+ 
+      _    _ _        
+     / \  | | |_ ___  
+    / _ \ | | __/ _ \ 
+   / ___ \| | || (_) |
+  /_/   \_\_|\__\___/ 
+                      
+ 
+*/
+.h_90 {
+   height: 90%;
+}
+
+.h_100 {
+   height: 100%;
+}
+
+.h_50 {
+   height: 50%;
+}
+
+.v_100 {
+   height: 100vh;
+}
+
+.m_45 {
+   min-height: 45px;
+}
+
+.h_max {
+   height: max-content;
+}
+
+/*
+ 
+   ____           _      _                       
+  |  _ \ ___  ___(_) ___(_) ___  _ __   ___  ___ 
+  | |_) / _ \/ __| |/ __| |/ _ \| '_ \ / _ \/ __|
+  |  __/ (_) \__ \ | (__| | (_) | | | |  __/\__ \
+  |_|   \___/|___/_|\___|_|\___/|_| |_|\___||___/
+                                                 
+ 
+*/
+.relative {
+   position: relative;
+}
+
+.absolute {
+   position: absolute;
+}
+
+.fixed {
+   position: fixed;
+}
+
+.sticky {
+   position: sticky;
+}
+
+.top_0 {
+   top: 0;
+}
+
+.top_50 {
+   top: 50%;
+}
+
+.left_0 {
+   left: 0;
+}
+
+.left_50 {
+   left: 50%;
+}
+
+.right_0 {
+   right: 0;
+}
+
+.right_50 {
+   right: 50%;
+}
+
+.bottom_0 {
+   bottom: 0;
+}
+
+.bottom_50 {
+   bottom: 50%;
+}
+
+/*
+ 
+   _____ _       _              _            
+  |  ___| | ___ | |_ __ _ _ __ | |_ ___  ___ 
+  | |_  | |/ _ \| __/ _` | '_ \| __/ _ \/ __|
+  |  _| | | (_) | || (_| | | | | ||  __/\__ \
+  |_|   |_|\___/ \__\__,_|_| |_|\__\___||___/
+                                             
+ 
+*/
+.float_left {
+   float: left;
+}
+
+.flot_right {
+   float: right;
+}
+
+/*
+ 
+   _____                     __                                 _             
+  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___   __ _  ___(_) ___  _ __  
+    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ / _` |/ __| |/ _ \| '_ \ 
+    | || | | (_| | | | \__ \  _| (_) | |  | | | | | | (_| | (__| | (_) | | | |
+    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|\__,_|\___|_|\___/|_| |_|
+                                                                              
+ 
+*/
+.transform_xy {
+   transform: translate(-50%, -50%);
+}
+
+.transform_y {
+   transform: translateY(-50%);
+}
+
+.transform_x {
+   transform: translateX(-50%);
+}
+
+.transform_scale_0 {
+   transform: scale(0);
+}
+
+.transform_scale_1 {
+   transform: scale(1);
+}
+
+.transform_top_10 {
+   transform: translateY(10px);
+}
+
+.transform_bottom_10 {
+   transform: translateY(-10px);
+}
+
+.transform_left_10 {
+   transform: translateX(10px);
+}
+
+.transform_right_10 {
+   transform: translateX();
+}
+
+.transform_rt_90 {
+   transform: rotate(90deg);
+}
+
+.transform_rt_n_90 {
+   transform: rotate(-90deg);
+}
+
+.transform_rt_180 {
+   transform: rotate(180deg);
+}
+
+.transform_rt_n_180 {
+   transform: rotate(-180deg);
+}
+
+.transform_rt_360 {
+   transform: rotate(360deg);
+}
+
+/*
+ 
+   ____            _                   _                 _            _        
+  |  _ \  ___  ___| |__   ___  _ __ __| | __ _ _ __ ___ (_) ___ _ __ | |_ ___  
+  | | | |/ _ \/ __| '_ \ / _ \| '__/ _` |/ _` | '_ ` _ \| |/ _ \ '_ \| __/ _ \ 
+  | |_| |  __/\__ \ |_) | (_) | | | (_| | (_| | | | | | | |  __/ | | | || (_) |
+  |____/ \___||___/_.__/ \___/|_|  \__,_|\__,_|_| |_| |_|_|\___|_| |_|\__\___/ 
+                                                                               
+ 
+*/
+.overflow_hidden {
+   overflow: hidden;
+}
+
+.overflow_y_hidden {
+   overflow-y: hidden;
+}
+
+.overflow_x_hidden {
+   overflow-x: hidden;
+}
+
+.overflow_auto {
+   overflow: auto;
+}
+
+.overflow_y_auto {
+   overflow-y: auto;
+}
+
+.overflow_x_auto {
+   overflow-x: auto;
+}
+
+.overflow_anywhere {
+   overflow-wrap: anywhere;
+}
+
+.overflow_break_word {
+   overflow-wrap: break-word;
+}
+
+.overflow_clip {
+   overflow-block: clip;
+}
+
+/*
+ 
+  __     __        _   _               
+  \ \   / /__ _ __| |_(_) ___ ___  ___ 
+   \ \ / / _ \ '__| __| |/ __/ _ \/ __|
+    \ V /  __/ |  | |_| | (_|  __/\__ \
+     \_/ \___|_|   \__|_|\___\___||___/
+                                       
+ 
+*/
+.vertical_middle {
+   vertical-align: middle;
+}
+
+.vertical_top {
+   vertical-align: top;
+}
+
+/*
+ 
+   _____ _ _           _     
+  | ____| (_)_ __  ___(_)___ 
+  |  _| | | | '_ \/ __| / __|
+  | |___| | | |_) \__ \ \__ \
+  |_____|_|_| .__/|___/_|___/
+            |_|              
+ 
+*/
+.ellipsis {
+   text-overflow: ellipsis;
+}
+
+/*
+ 
+   _____                 _ _                      ___     ____                                 
+  | ____|_ ____   _____ | | |_ _   _ _ __ __ _   ( _ )   |  _ \ ___  _ __ ___  _ __   ___ _ __ 
+  |  _| | '_ \ \ / / _ \| | __| | | | '__/ _` |  / _ \/\ | |_) / _ \| '_ ` _ \| '_ \ / _ \ '__|
+  | |___| | | \ V / (_) | | |_| |_| | | | (_| | | (_>  < |  _ < (_) | | | | | | |_) |  __/ |   
+  |_____|_| |_|\_/ \___/|_|\__|\__,_|_|  \__,_|  \___/\/ |_| \_\___/|_| |_| |_| .__/ \___|_|   
+                                                                              |_|              
+ 
+*/
+.nowrap {
+   white-space: nowrap;
+}
+
+.word_break {
+   word-break: break-all;
+}
+
+/*
+ 
+   ____        _   _     
+  | __ )  ___ | |_| |__  
+  |  _ \ / _ \| __| '_ \ 
+  | |_) | (_) | |_| | | |
+  |____/ \___/ \__|_| |_|
+                         
+ 
+*/
+.clear_both {
+   clear: both;
+}
+
+/*
+ 
+    ____                          
+   / ___|   _ _ __ ___  ___  _ __ 
+  | |  | | | | '__/ __|/ _ \| '__|
+  | |__| |_| | |  \__ \ (_) | |   
+   \____\__,_|_|  |___/\___/|_|   
+                                  
+ 
+*/
+.pointer {
+   cursor: pointer;
+}
+
+.cursor_text {
+   cursor: text;
+}
+
+.cursor_blocked {
+   cursor: not-allowed;
+}
+
+.cursor_default {
+   cursor: default;
+}
+
+.cursor_await {
+   cursor: wait;
+}
+
+.cursor_move {
+   cursor: move;
+}
+
+.cursor_help {
+   cursor: help;
+}
+
+.cursor_grab {
+   cursor: grab;
+}
+
+.cursor_copy {
+   cursor: copy;
+}
+
+.cursor_cell {
+   cursor: cell;
+}
+
+.cursor_alias {
+   cursor: alias;
+}
+
+.cursor_crosshair {
+   cursor: crosshair;
+}
+
+
+/*
+ 
+    ___          _            
+   / _ \ _ __ __| | ___ _ __  
+  | | | | '__/ _` |/ _ \ '_ \ 
+  | |_| | | | (_| |  __/ | | |
+   \___/|_|  \__,_|\___|_| |_|
+                              
+ 
+*/
+.z_0 {
+   z-index: 0;
+}
+
+.z_1 {
+   z-index: 1;
+}
+
+.z_100 {
+   z-index: 100;
+}
+
+.z_300 {
+   z-index: 300;
+}
+
+.z_500 {
+   z-index: 500;
+}
+
+.z_999 {
+   z-index: 999;
+}
+
+.z_n {
+   z-index: -1;
+}
+
+.z_all {
+   z-index: 11111;
+}
+
+/*
+ 
+   ____                _           
+  | __ )  ___  _ __ __| | ___  ___ 
+  |  _ \ / _ \| '__/ _` |/ _ \/ __|
+  | |_) | (_) | | | (_| |  __/\__ \
+  |____/ \___/|_|  \__,_|\___||___/
+                                   
+ 
+*/
+.border_0 {
+   border: 0;
+}
+
+.border_1 {
+   border-width: 1px;
+}
+
+.border_solid {
+   border-style: solid;
+}
+
+.border_dotted {
+   border-style: dotted;
+}
+
+/*
+ 
+   _____ _ _      ___     ____             _                                   _ 
+  |  ___(_) |_   ( _ )   | __ )  __ _  ___| | ____ _ _ __ ___  _   _ _ __   __| |
+  | |_  | | __|  / _ \/\ |  _ \ / _` |/ __| |/ / _` | '__/ _ \| | | | '_ \ / _` |
+  |  _| | | |_  | (_>  < | |_) | (_| | (__|   < (_| | | | (_) | |_| | | | | (_| |
+  |_|   |_|\__|  \___/\/ |____/ \__,_|\___|_|\_\__, |_|  \___/ \__,_|_| |_|\__,_|
+                                               |___/                             
+ 
+*/
+.fit_cover {
+   object-fit: cover;
+}
+
+.fit_contain {
+   object-fit: contain;
+}
+
+.bg_cover {
+   background-size: cover;
+}
+
+.bg_full_auto {
+   background-size: 100% 100%;
+}
+
+/*
+ 
+   _____                 _                          _           
+  |  ___|   _  ___ _ __ | |_ ___    __ _ _ __   ___| |__   ___  
+  | |_ | | | |/ _ \ '_ \| __/ _ \  / _` | '_ \ / __| '_ \ / _ \ 
+  |  _|| |_| |  __/ | | | ||  __/ | (_| | | | | (__| | | | (_) |
+  |_|   \__,_|\___|_| |_|\__\___|  \__,_|_| |_|\___|_| |_|\___/ 
+                                                                
+ 
+*/
+.bold {
+   font-weight: bold;
+}
+
+.bold_200 {
+   font-weight: 200;
+}
+
+.bold_300 {
+   font-weight: 300;
+}
+
+.bold_400 {
+   font-weight: 400;
+}
+
+.bold_500 {
+   font-weight: 500;
+}
+
+.bold_600 {
+   font-weight: 600;
+}
+
+.bold_700 {
+   font-weight: 700;
+}
+
+.bold_800 {
+   font-weight: 800;
+}
+
+.bold_900 {
+   font-weight: 900;
+}
+
+.regular {
+   font-weight: normal;
+}
+
+.regular_100 {
+   font-weight: 100;
+}
+
+.regular_300 {
+   font-weight: 300;
+}
+
+.regular__400 {
+   font-weight: 400;
+}
+
+/*
+ 
+   _____         _              _                          _   _            
+  |_   _|____  _| |_ ___     __| | ___  ___ ___  _ __ __ _| |_(_)_   _____  
+    | |/ _ \ \/ / __/ _ \   / _` |/ _ \/ __/ _ \| '__/ _` | __| \ \ / / _ \ 
+    | |  __/>  <| || (_) | | (_| |  __/ (_| (_) | | | (_| | |_| |\ V / (_) |
+    |_|\___/_/\_\\__\___/   \__,_|\___|\___\___/|_|  \__,_|\__|_| \_/ \___/ 
+                                                                            
+ 
+*/
+.text_none {
+   text-decoration: none;
+}
+
+.text_underline {
+   text-decoration: underline;
+}
+
+.text_line_through {
+   text-decoration: line-through;
+}
+
+.text_dotted {
+   text-decoration: dotted;
+}
+
+/*
+ 
+      _    _ _                       _                       
+     / \  | (_)_ __   ___  __ _  ___(_) ___  _ __   ___  ___ 
+    / _ \ | | | '_ \ / _ \/ _` |/ __| |/ _ \| '_ \ / _ \/ __|
+   / ___ \| | | | | |  __/ (_| | (__| | (_) | | | |  __/\__ \
+  /_/   \_\_|_|_| |_|\___|\__,_|\___|_|\___/|_| |_|\___||___/
+                                                             
+ 
+*/
+.text_left {
+   text-align: left;
+}
+
+.text_center {
+   text-align: center;
+}
+
+.text_right {
+   text-align: right;
+}
+
+.text_justify {
+   text-align: justify;
+}
+
+.text_line_h_1 {
+   line-height: 1;
+}
+
+.text_line_h_1_3 {
+   line-height: 1.3;
+}
+
+.text_line_h_1_5 {
+   line-height: 1.5;
+}
+
+.text_line_h_1_8 {
+   line-height: 1.8;
+}
+
+.text_line_h_2 {
+   line-height: 2;
+}
+
+/*
+ 
+   _____ _                          _                         __ _       
+  |_   _(_)_ __   ___     ___  _ __| |_ ___   __ _ _ __ __ _ / _(_) __ _ 
+    | | | | '_ \ / _ \   / _ \| '__| __/ _ \ / _` | '__/ _` | |_| |/ _` |
+    | | | | |_) | (_) | | (_) | |  | || (_) | (_| | | | (_| |  _| | (_| |
+    |_| |_| .__/ \___/   \___/|_|   \__\___/ \__, |_|  \__,_|_| |_|\__,_|
+          |_|                                |___/                       
+ 
+*/
+.uppercase {
+   text-transform: uppercase;
+}
+
+.lowercase {
+   text-transform: lowercase;
+}
+
+.capitalize {
+   text-transform: capitalize;
+}
+
+/*
+ 
+    ___                   _     _           _ 
+   / _ \ _ __   __ _  ___(_) __| | __ _  __| |
+  | | | | '_ \ / _` |/ __| |/ _` |/ _` |/ _` |
+  | |_| | |_) | (_| | (__| | (_| | (_| | (_| |
+   \___/| .__/ \__,_|\___|_|\__,_|\__,_|\__,_|
+        |_|                                   
+ 
+*/
+.opacity_0 {
+   opacity: 0;
+}
+
+.opacity_75 {
+   opacity: 0.75;
+}
+
+.opacity_65 {
+   opacity: 0.65;
+}
+
+.opacity_45 {
+   opacity: 0.45;
+}
+
+.opacity_25 {
+   opacity: 0.25;
+}
+
+.opacity_1 {
+   opacity: 1;
+}
+
+/*
+ 
+  __     ___     _ _     _ _ _     _           _ 
+  \ \   / (_)___(_) |__ (_) (_) __| | __ _  __| |
+   \ \ / /| / __| | '_ \| | | |/ _` |/ _` |/ _` |
+    \ V / | \__ \ | |_) | | | | (_| | (_| | (_| |
+     \_/  |_|___/_|_.__/|_|_|_|\__,_|\__,_|\__,_|
+                                                 
+ 
+*/
+.visible_hidden {
+   visibility: hidden;
+}
+
+.visible_auto {
+   visibility: visible;
+}
+
+/*
+ 
+   _____                 _ _                  _ 
+  |  ___|__   ___ ___   | (_)_ __   ___  __ _| |
+  | |_ / _ \ / __/ _ \  | | | '_ \ / _ \/ _` | |
+  |  _| (_) | (_| (_) | | | | | | |  __/ (_| | |
+  |_|  \___/ \___\___/  |_|_|_| |_|\___|\__,_|_|
+                                                
+ 
+*/
+.outline_none {
+   outline: none;
+}
+
+/*
+ 
+   _   _                  _           _                        
+  | \ | | ___    ___  ___| | ___  ___(_) ___  _ __   __ _ _ __ 
+  |  \| |/ _ \  / __|/ _ \ |/ _ \/ __| |/ _ \| '_ \ / _` | '__|
+  | |\  | (_) | \__ \  __/ |  __/ (__| | (_) | | | | (_| | |   
+  |_| \_|\___/  |___/\___|_|\___|\___|_|\___/|_| |_|\__,_|_|   
+                                                               
+ 
+*/
+.select_none {
+   user-select: none;
+}
+
+/*
+ 
+   ____  _                                                    _                       
+  | __ )| | ___   __ _ _   _  ___  __ _ _ __    __ _  ___ ___(_) ___  _ __   ___  ___ 
+  |  _ \| |/ _ \ / _` | | | |/ _ \/ _` | '__|  / _` |/ __/ __| |/ _ \| '_ \ / _ \/ __|
+  | |_) | | (_) | (_| | |_| |  __/ (_| | |    | (_| | (_| (__| | (_) | | | |  __/\__ \
+  |____/|_|\___/ \__, |\__,_|\___|\__,_|_|     \__,_|\___\___|_|\___/|_| |_|\___||___/
+                    |_|                                                               
+ 
+*/
+.point_none {
+   pointer-events: none;
+}
+
+/*
+ 
+   ____                                    _  /\/|      _            
+  | __ )  ___  _ __ _ __ __ _ _ __  __   _(_)|/\/   ___| |_ __ _ ___ 
+  |  _ \ / _ \| '__| '__/ _` | '__| \ \ / / | '_ \ / _ \ __/ _` / __|
+  | |_) | (_) | |  | | | (_| | |     \ V /| | | | |  __/ || (_| \__ \
+  |____/ \___/|_|  |_|  \__,_|_|      \_/ |_|_| |_|\___|\__\__,_|___/
+                                                                     
+ 
+*/
+.list_none {
+   list-style-type: none;
+}
+
+/*
+ 
+   __  __           _       _                       _             
+  |  \/  | ___   __| | __ _| |   _____   _____ _ __| | __ _ _   _ 
+  | |\/| |/ _ \ / _` |/ _` | |  / _ \ \ / / _ \ '__| |/ _` | | | |
+  | |  | | (_) | (_| | (_| | | | (_) \ V /  __/ |  | | (_| | |_| |
+  |_|  |_|\___/ \__,_|\__,_|_|  \___/ \_/ \___|_|  |_|\__,_|\__, |
+                                                            |___/ 
+ 
+*/
+.modal_bg {
+   background: #161618fa;
+}
+
+/*
+ 
+   _____ _ _ _            
+  |  ___(_) | |_ ___ _ __ 
+  | |_  | | | __/ _ \ '__|
+  |  _| | | | ||  __/ |   
+  |_|   |_|_|\__\___|_|   
+                          
+ 
+*/
+/* .filter_blur {
+    backdrop-filter: blur(1px);
+} */
+
+/*
+ 
+   __  __                                         ___     _____                      _           _           
+  |  \/  | __ _ _ __ __ _  ___ _ __   ___  ___   ( _ )   | ____|___ _ __   __ _  ___(_) __ _  __| | ___  ___ 
+  | |\/| |/ _` | '__/ _` |/ _ \ '_ \ / _ \/ __|  / _ \/\ |  _| / __| '_ \ / _` |/ __| |/ _` |/ _` |/ _ \/ __|
+  | |  | | (_| | | | (_| |  __/ | | |  __/\__ \ | (_>  < | |___\__ \ |_) | (_| | (__| | (_| | (_| | (_) \__ \
+  |_|  |_|\__,_|_|  \__, |\___|_| |_|\___||___/  \___/\/ |_____|___/ .__/ \__,_|\___|_|\__,_|\__,_|\___/|___/
+                    |___/                                          |_|                                       
+ 
+*/
+.mg_t1 {
+   margin-top: 1em;
+}
+
+.mg_b1 {
+   margin-bottom: 1em;
+}
+
+.mg_top,
+.pd_top {
+   margin-top: 1.5em;
+}
+
+.mg_botton,
+.pd_bottom {
+   margin-bottom: 1.5em;
+}
+
+.mg_auto_top {
+   margin-top: 0;
+}
+
+.mg_auto_bottom {
+   margin-bottom: 0;
+}
+
+.mg_auto_flex {
+   margin-top: auto;
+}
+
+.mg_top_x2 {
+   margin-top: 2em;
+}
+
+.mg_bottom_x2 {
+   margin-bottom: 2em;
+}
+
+.mg_top_x25 {
+   margin-top: 2.5em;
+}
+
+.mg_bottom_x25 {
+   margin-bottom: 2.5em;
+}
+
+.pd_1 {
+   padding: 1em;
+}
+
+.pd_1_5 {
+   padding: 1.5em;
+}
+
+.pd_2 {
+   padding: 2em;
+}
+
+/*
+ 
+   _____                 _                              _            
+  |  ___|   _  ___ _ __ | |_ ___   _ __ ___  __ _ _   _| | __ _ _ __ 
+  | |_ | | | |/ _ \ '_ \| __/ _ \ | '__/ _ \/ _` | | | | |/ _` | '__|
+  |  _|| |_| |  __/ | | | ||  __/ | | |  __/ (_| | |_| | | (_| | |   
+  |_|   \__,_|\___|_| |_|\__\___| |_|  \___|\__, |\__,_|_|\__,_|_|   
+                                            |___/                    
+ 
+*/
+.font_regular {
+   font-size: 0.85rem;
+}
+
+/*
+ 
+   ___                                  
+  |_ _|_ __ ___   __ _  __ _  ___ _ __  
+   | || '_ ` _ \ / _` |/ _` |/ _ \ '_ \ 
+   | || | | | | | (_| | (_| |  __/ | | |
+  |___|_| |_| |_|\__,_|\__, |\___|_| |_|
+                       |___/            
+ 
+*/
+
+.img {
+   border-style: none;
+}
+
+/*
+ 
+   _____                      /\/|           
+  |_   _|_ _ _ __ ___   __ _ |/\/   ___  ___ 
+    | |/ _` | '_ ` _ \ / _` | '_ \ / _ \/ __|
+    | | (_| | | | | | | (_| | | | | (_) \__ \
+    |_|\__,_|_| |_| |_|\__,_|_| |_|\___/|___/
+                                             
+ 
+*/
+
+.f_11 {
+   font-size: 11px;
+}
+
+.f_12 {
+   font-size: 12px;
+}
+
+.f_13 {
+   font-size: 13px;
+}
+
+.f_14 {
+   font-size: 14px;
+}
+
+.f_15 {
+   font-size: 15px;
+}
+
+.f_16 {
+   font-size: 16px;
+}
+
+.f_17 {
+   font-size: 17px;
+}
+
+.f_18 {
+   font-size: 18px;
+}
+
+.f_19 {
+   font-size: 19px;
+}
+
+.f_20 {
+   font-size: 20px;
+}
+
+.f_21 {
+   font-size: 21px;
+}
+
+.f_22 {
+   font-size: 22px;
+}
+
+.f_23 {
+   font-size: 23px;
+}
+
+.f_24 {
+   font-size: 24px;
+}
+
+.f_25 {
+   font-size: 25px;
+}
+
+.f_26 {
+   font-size: 26px;
+}
+
+.f_27 {
+   font-size: 27px;
+}
+
+.f_28 {
+   font-size: 28px;
+}
+
+.f_29 {
+   font-size: 29px;
+}
+
+.f_30 {
+   font-size: 30px;
+}
+
+.f_33 {
+   font-size: 33px;
+}
+
+.f_40 {
+   font-size: 40px;
+}
+
+.f_50 {
+   font-size: 50px;
+}
+
+.f_60 {
+   font-size: 60px;
+}
+
+.f_70 {
+   font-size: 70px;
+}
+
+/*
+ 
+   ____                 _ _ 
+  / ___|  ___ _ __ ___ | | |
+  \___ \ / __| '__/ _ \| | |
+   ___) | (__| | | (_) | | |
+  |____/ \___|_|  \___/|_|_|
+                            
+ 
+*/
+.scroll_0::-webkit-scrollbar {
+   scrollbar-width: none;
+   width: 0;
+   height: 0;
+}
+
+/*
+ 
+    ___             _ _             
+   / _ \  ___ _   _| | |_ __ _ _ __ 
+  | | | |/ __| | | | | __/ _` | '__|
+  | |_| | (__| |_| | | || (_| | |   
+   \___/ \___|\__,_|_|\__\__,_|_|   
+                                    
+ 
+*/
+.object_none {
+   display: none;
+}

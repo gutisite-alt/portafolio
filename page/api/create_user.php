@@ -1,0 +1,82 @@
+<?php
+// ============================================================
+// REGISTRAR NUEVO USUARIO (POST) — ANAYA ERP
+// ============================================================
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+header('Content-Type: application/json; charset=utf-8');
+
+// Verificar sesión activa y rol de administrador
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true || $_SESSION['role'] !== 'admin') {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => 'Acceso denegado. Permisos de administrador requeridos.']);
+    exit;
+}
+
+require_once '../config/db_connect.php';
+
+// Leer el payload JSON enviado desde JS
+$inputJSON = file_get_contents('php://input');
+$input = json_decode($inputJSON, true);
+
+$name = isset($input['name']) ? trim($input['name']) : '';
+$email = isset($input['email']) ? trim($input['email']) : '';
+$password = isset($input['password']) ? trim($input['password']) : '';
+$role = isset($input['role']) ? trim($input['role']) : 'operator';
+
+// Validaciones básicas
+if (empty($name) || empty($email) || empty($password)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Nombre, correo electrónico y contraseña son requeridos.']);
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'El formato del correo electrónico es inválido.']);
+    exit;
+}
+
+if (strlen($password) < 6) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'La contraseña debe tener al menos 6 caracteres.']);
+    exit;
+}
+
+try {
+    // Validar si el correo electrónico ya existe
+    $stmt = $pdo->prepare('SELECT id FROM users WHERE email = :email LIMIT 1');
+    $stmt->execute(['email' => $email]);
+    if ($stmt->fetch()) {
+        http_response_code(409);
+        echo json_encode(['success' => false, 'message' => 'El correo electrónico ya se encuentra registrado.']);
+        exit;
+    }
+
+    // Hashear la contraseña con Bcrypt
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    // Insertar el nuevo registro en la tabla de usuarios
+    $stmt = $pdo->prepare('INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)');
+    $stmt->execute([
+        'name' => $name,
+        'email' => $email,
+        'password' => $hashedPassword,
+        'role' => $role
+    ]);
+
+    $newUserId = $pdo->lastInsertId();
+    write_audit_log($pdo, 'USER_CREATE', 'users', $newUserId, "Se creó un nuevo usuario: '$name' ($email) con el rol de '$role'.");
+
+    echo json_encode([
+        'success' => true,
+        'message' => 'Usuario registrado exitosamente.'
+    ]);
+} catch (\PDOException $e) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Error al crear el usuario: ' . $e->getMessage()]);
+}
+?>

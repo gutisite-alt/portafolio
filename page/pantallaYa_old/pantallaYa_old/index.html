@@ -1,0 +1,431 @@
+<?php
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+} ?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantallaYA Bienvenidos</title>
+    <link rel="shortcut icon" href="img/icono.png" type="image/png">
+    <link rel="stylesheet" href="css/lexx.css">
+    <link rel="stylesheet" href="css/lexx_icons.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/pantallaYa.css">
+    <link rel="stylesheet" href="css/modal-wizard.css">
+    <link rel="stylesheet" href="css/auth-premium.css">
+</head>
+
+<body class="home">
+
+    <div class="navbar_home">
+        <div class="base_container">
+            <div class="flex flex_center gap_20 w_100">
+                <div class="flex_100 flex flex_center img_logo">
+                    <img src="img/icono.png" alt="Lexx">
+                    <span class="bold_600 f_18">PantallaYA</span>
+                </div>
+                <div>
+                    <samp class="pointer btn_nav_login"><b class="flex flex_center gap_5" onclick="AuthModal.open('login')">Acceder ahora <i class="f_20 lexx lexx_angle_r"></i></b></samp>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="inicio" class="hero">
+        <div class="base_container hero_content">
+            <div class="grid gap_20 w_100">
+                <div class="min_w_0 grid gap_16 text_center">
+                    <!-- <div>
+                        <span>Nueva era publicitaria</span>
+                    </div> -->
+                    <div>
+                        <h1 class="hero_main_title">Publicidad que <span>tus clientes</span> no pueden ignorar</h1>
+                        <h4 class="hero_sub_title">Anuncia tu negocio en pantallas digitales dentro de los edificios donde viven tus clientes potenciales.</h4>
+                    </div>
+                    <div>
+                        <button class="flex flex_center justify_center gap_10 btn_open_modal" data-modal="modalPublication">Publica Aquí <i class="f_20 lexx lexx_angle_r"></i></button>
+                    </div>
+                    <div>
+                        <small class="block">M&aacute;s de <strong>100 edificios</strong> ya cuentan con el</small>
+                    </div>
+                </div>
+                <div class="banner flex flex_center justify_end">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caracteristicas -->
+    <section id="ventajas" class="fx left">
+        <div class="base_container features_content padding_content">
+            <hgroup class="grid gap_5 hgroup">
+                <h1>¿Por qué elegir PantallaYa?</h1>
+                <h3>Maximiza el impacto de tu marca con una audiencia cautiva y segmentada geográficamente en su entorno más cercano.</h3>
+            </hgroup>
+
+            <div class="w_100 grid grid_col_3 gap_20 features-grid">
+                <div class="min_w_0 cards feature-card grid gap_10">
+                    <div class="card_icon">
+                        <span class="icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="17 1 21 5 17 9"></polyline>
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                <polyline points="7 23 3 19 7 15"></polyline>
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <h4>Alta Frecuencia Visual</h4>
+                    <p>Tus clientes potenciales visualizarán tu marca hasta 4 veces al día, garantizando máxima retención de tu mensaje.</p>
+                </div>
+                <div class="min_w_0 cards feature-card grid gap_10">
+                    <div class="card_icon">
+                        <span class="icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                    <h4>Segmentación Hiper-Local</h4>
+                    <p>Llega exactamente a las personas que viven a minutos de tu negocio. Segmentación geográfica con cero desperdicio publicitario.</p>
+                </div>
+                <div class="min_w_0 cards feature-card grid gap_10">
+                    <div class="card_icon">
+                        <span class="icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                    <h4>Audiencia 100% Cautiva</h4>
+                    <p>Aprovecha los tiempos de espera. Tu anuncio se muestra de forma inmersiva y sin distracciones en el trayecto de los residentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="proceso" class="fx right color_bg">
+        <div class="base_container campana_content">
+            <hgroup class="grid gap_5 hgroup">
+                <h1>Lanza tu campaña en minutos</h1>
+            </hgroup>
+            <div class="grid card_breadcumb gap_30 w_100">
+                <div class="card_connect grid gap_10">
+                    <div class="card_circle">
+                        <span class="flex flex_center justify_center"><i class="flex f_28 lexx lexx_open_location"></i></span>
+                    </div>
+                    <div class="grid gap_10">
+                        <h2 class="block text_center">1. Selecciona tu zona</h2>
+                        <p class="block text_center">Utiliza nuestro mapa interactivo para elegir los edificios y barrios que más te interesan para tu negocio.</p>
+                    </div>
+                </div>
+                <div class="card_connect card_connect_center grid gap_10 relative">
+                    <div class="card_circle w_100">
+                        <span class="flex flex_center justify_center"><i class="flex f_28 lexx lexx_upload"></i></span>
+                    </div>
+                    <div class="grid gap_10">
+                        <h2 class="block text_center">2. Sube tu diseño</h2>
+                        <p class="block text_center">Añade tu anuncio en formato imagen y comienza a difundirlo de inmediato.</p>
+                    </div>
+                </div>
+                <div class="card_connect grid gap_10">
+                    <div class="card_circle">
+                        <span class="flex flex_center justify_center"><i class="flex f_28 lexx lexx_rocket"></i></span>
+                    </div>
+                    <div class="grid gap_10">
+                        <h2 class="block text_center">3. ¡Lanzamiento!</h2>
+                        <p class="block text_center">Tras una rápida validación, tu campaña se activa instantáneamente en todas las pantallas seleccionadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios -->
+    <section id="planes" class="fx left">
+        <div class="base_container price_content padding_content">
+            <hgroup class="grid gap_5 hgroup">
+                <h1>Planes que crecen contigo</h1>
+                <h3>Inversión inteligente para resultados reales en tu vecindario.</h3>
+            </hgroup>
+
+            <div class="w_100 grid grid_col_3 gap_20">
+                <div class="min_w_0 price flex dir_columns gap_10">
+                    <h3>Emprendedor <small>Mensual</small></h3>
+                    <h2 class="flex">$49.000 <small>COP/mes</small></h2>
+                    <ul class="grid gap_15">
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">1 anuncio en rotación</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">1 edificio a tu elección</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Soporte por WhatsApp</span></li>
+                    </ul>
+                    <button class="btn_open_modal" data-modal="modalPublication" data-plan="basico">Seleccionar Plan</button>
+                </div>
+                <div class="min_w_0 price flex dir_columns gap_10 active relative" aria-label="Más popular">
+                    <h3>Plan Negocio</h3>
+                    <h2 class="flex">$99.000 <small>COP/mes</small></h2>
+                    <ul class="grid gap_15">
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Hasta 3 anuncios rotativos</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Presencia en 3 edificios cercanos</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Mayor frecuencia de aparición</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Reporte de métricas mensual</span></li>
+                    </ul>
+                    <button class="btn_open_modal" data-modal="modalPublication" data-plan="negocio">Empezar ahora</button>
+                </div>
+                <div class="min_w_0 price flex dir_columns gap_10">
+                    <h3>Plan Premium <small>Mensual</small></h3>
+                    <h2 class="flex">$199.000 <small>COP/mes</small></h2>
+                    <ul class="grid gap_15">
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Cambios de anuncio ilimitados</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Presencia en hasta 10 edificios</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Rotación prioritaria (VIP)</span></li>
+                        <li class="flex flex_start gap_10 w_100"><i class="lexx lexx_check_ok f_20 price_check_icon"></i> <span class="flex_100">Diseño gráfico del anuncio incluido</span></li>
+                    </ul>
+                    <button class="btn_open_modal" data-modal="modalPublication" data-plan="premium">Seleccionar Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficio -->
+    <section id="beneficios" class="fx right">
+        <div class="base_container benefits_content padding_content">
+            <div class="w_100 grid grid_col_2 gap_30">
+                <div class="min_w_0 grid gap_10">
+                    <div>
+                        <samp>Beneficios de PantallaYA</samp>
+                    </div>
+                    <hgroup class="grid gap_5 hgroup">
+                        <h1>Publicidad donde tus clientes realmente están</h1>
+                        <h3>Se instalan pantallas digitales dentro de ascensores de edificios y conjuntos residenciales. Allí se muestran anuncios de negocios cercanos, eventos del edificio y avisos importantes. Cada residente ve la pantalla varias veces al día.</h3>
+                    </hgroup>
+                    <div class="flex flex_center gap_30">
+                        <div class="benefits_card relative">
+                            <h5>100%</h5>
+                            <small class="f_13 block uppercase opacity_65">Tasa de lectura</small>
+                        </div>
+                        <div>
+                            <h5>0%</h5>
+                            <small class="f_13 block uppercase opacity_65">Papel desperdiciado</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex_center justify_center">
+                    <div class="benefits_module w_100">
+                        <div class="w_100 benefits_module_header flex flex_center gap_16">
+                            <div class="flex_100 flex flex_center">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div>
+                                <em>admin-pantallaYa</em>
+                            </div>
+                        </div>
+                        <div class="benefits_dialog w_100 grid gap_10">
+                            <span class="block"></span>
+                            <span class="block relative lexx_check_active_b">
+                                <b>Aviso:</b> Limpieza de garaje - Lunes 15
+                            </span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn_cta_impact btn_open_modal" data-modal="modalPublication">Publicar anuncio <i class="lexx lexx_angle_r"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas -->
+    <section id="faq" class="fx left">
+        <div class="base_container faq_content padding_content">
+            <hgroup class="grid gap_5 hgroup">
+                <h1>Preguntas Frecuentes</h1>
+            </hgroup>
+
+            <div class="faq">
+                <details class="details">
+                    <summary class="details_summary flex flex_center justify_between gap_10">
+                        <span>¿Cómo funciona PantallaYA?</span>
+                        <i class="lexx lexx_chevron_down"></i>
+                    </summary>
+                    <div class="details_content">
+                        <p>PantallaYA instala pantallas digitales dentro de ascensores en edificios residenciales. Los anunciantes pueden subir sus anuncios a través de nuestra plataforma, seleccionar los edificios donde quieren que se muestren y lanzar su campaña. Cada vez que un residente entra o sale del edificio, ve la pantalla con los anuncios, lo que garantiza una alta frecuencia de exposición.</p>
+                    </div>
+                </details>
+
+                <details class="details">
+                    <summary class="details_summary flex flex_center justify_between gap_10">
+                        <span>¿Qué tipo de negocios pueden anunciarse?</span>
+                        <i class="lexx lexx_chevron_down"></i>
+                    </summary>
+                    <div class="details_content">
+                        <p>Cualquier negocio local puede beneficiarse de PantallaYA. Restaurantes, tiendas de ropa, gimnasios, servicios de salud, eventos culturales y más pueden llegar a su audiencia local de manera efectiva. Nuestra plataforma permite segmentar por ubicación para que tu anuncio llegue a las personas que realmente están cerca de tu negocio.</p>
+                    </div>
+                </details>
+
+                <details class="details">
+                    <summary class="details_summary flex flex_center justify_between gap_10">
+                        <span>¿Cómo puedo anunciar mi negocio en PantallaYa?</span>
+                        <i class="lexx lexx_chevron_down"></i>
+                    </summary>
+                    <div class="details_content">
+                        <p>Es muy sencillo. Solo debes elegir uno de nuestros planes de publicidad, enviarnos tu anuncio en formato imagen y nosotros lo publicamos en las pantallas ubicadas dentro de los ascensores.</p>
+                    </div>
+                </details>
+
+                <details class="details">
+                    <summary class="details_summary flex flex_center justify_between gap_10">
+                        <span>¿En qué edificios aparecerá mi publicidad?</span>
+                        <i class="lexx lexx_chevron_down"></i>
+                    </summary>
+                    <div class="details_content">
+                        <p>Tu anuncio se mostrará en las pantallas instaladas en edificios y conjuntos residenciales dentro de la zona seleccionada, permitiendo que residentes cercanos conozcan tu negocio.</p>
+                    </div>
+                </details>
+
+                <details class="details">
+                    <summary class="details_summary flex flex_center justify_between gap_10">
+                        <span>¿Cuánto tiempo dura un anuncio?</span>
+                        <i class="lexx lexx_chevron_down"></i>
+                    </summary>
+                    <div class="details_content">
+                        <p>Depende del plan que elijas. Nuestros planes generalmente tienen una duración de 15 o 30 días, durante los cuales tu anuncio aparecerá en rotación dentro de las pantallas.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartado -->
+    <section class="fx right">
+        <div class="base_container paragraph_content padding_content">
+            <div class="paragraph grid gap_20">
+                <hgroup class="grid gap_5 hgroup">
+                    <h1>¿Listo para dominar <b>tu zona local?</b></h1>
+                    <h3>Únete a cientos de negocios que ya están en el campo visual de sus vecinos todos los días.</h3>
+                </hgroup>
+                <div class="flex flex_center justify_center flex_wrap gap_20">
+                    <button class="btn_open_modal" data-modal="modalPublication">Empieza a anunciar hoy</button>
+                    <button>Solicitar consultoría</button>
+                </div>
+                <div class="block text_center">
+                    <small class="opacity_75">Sin compromisos de permanencia largos • Gestión 100% online</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="fx footer_home">
+        <div class="base_container footer_content padding_content">
+            <div class="w_100 grid footer_grid">
+                <!-- Columna 1: Marca -->
+                <div class="flex dir_columns gap_15 min_w_0">
+                    <div class="footer_logo flex flex_center gap_10">
+                        <img src="img/icono.png" alt="PantallaYA">
+                        <span class="bold_600 f_18">PantallaYA</span>
+                    </div>
+                    <p class="f_14 opacity_75 bold_300">Revolucionando la publicidad hiperlocal mediante pantallas inteligentes en el corazón de las comunidades residenciales.</p>
+                    <div class="footer_social flex flex_start gap_10">
+                        <a href="#" class="social_item facebook" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9.101 24v-11.064H6.117V9.456h2.984V6.901c0-2.968 1.812-4.585 4.46-4.585 1.268 0 2.358.095 2.674.137v3.1h-1.835c-1.441 0-1.72.684-1.72 1.688v2.215h3.433l-.448 3.48h-2.985V24H9.101z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social_item instagram" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social_item email" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div class="flex dir_columns gap_15 min_w_0 footer_col_right">
+                    <h4 class="bold_600 f_16">Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#planes" class="f_14 opacity_75">Nuestros Planes</a></li>
+                        <li><a href="#proceso" class="f_14 opacity_75">¿Cómo funciona?</a></li>
+                        <li><a href="#faq" class="f_14 opacity_75">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="f_14 opacity_75" onclick="event.preventDefault(); AuthModal.open('login')">Acceso Clientes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div class="flex dir_columns gap_15 min_w_0 footer_col_right">
+                    <h4 class="bold_600 f_16">Contacto</h4>
+                    <ul>
+                        <li class="flex gap_10 opacity_75 footer_contact_item">
+                            <a href="tel:+573135159142" class="f_14">(+57) 3135159142</a>
+                            <i class="lexx lexx_colombia f_18"></i>
+                        </li>
+                        <li class="flex gap_10 opacity_75 footer_contact_item">
+                            <a href="mailto:contacto@pantallaya.com" class="f_14">contacto@pantallaya.com</a>
+                            <i class="lexx lexx_mail f_18"></i>
+                        </li>
+                    </ul>
+                    <button class="btn_open_modal btn_footer f_13 bold_500" data-modal="modalPublication">Empezar ahora</button>
+                </div>
+            </div>
+
+            <!-- Copyright Line -->
+            <div class="footer_copyright f_13 opacity_50">
+                <p>&copy; 2026 PantallaYA. Todos los derechos reservados.</p>
+                <div class="flex gap_20">
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/1234567890?text=hello+123" target=”_blank” class="whatsapp_btn">
+        <i class="lexx lexx_whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Flotante -->
+    <button id="scrollTopBtn" class="scroll_top_btn" aria-label="Volver arriba">
+        <i class="lexx lexx_chevron_top"></i>
+    </button>
+
+    <!-- MODAL GLOBAL SHELL -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-box" class="modal-box" data-size="md">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <button id="modal-close" class="modal-close" aria-label="Cerrar">✕</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+            <div id="modal-footer" class="modal-footer"></div>
+        </div>
+    </div>
+
+    <script src="js/lexx.js"></script>
+    <script src="js/lexx_icons.js"></script>
+    <script src="js/fx.js"></script>
+    <script src="digital/js/modal.js"></script>
+    <script src="digital/modals/crear.js"></script>
+    <script src="digital/modals/auth.js"></script>
+
+</body>
+
+</html>

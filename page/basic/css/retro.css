@@ -1,0 +1,707 @@
+/* 
+ * Basic ERP - Windows 98 / Visual Basic 6 Style Design System
+ * Pixel-perfect retro desktop and MDI widgets.
+ */
+
+:root {
+  --win-gray: #d4d0c8;
+  --win-gray-light: #ece9d8;
+  --win-white: #ffffff;
+  --win-shadow: #808080;
+  --win-dark-shadow: #404040;
+  --win-black: #000000;
+  --win-blue: #000080;
+  --win-blue-light: #1084d0;
+  --win-blue-inactive: #808080;
+  --win-blue-inactive-light: #b0b0b0;
+  --win-text-gray: #808080;
+  --win-desktop: #3a6ea5; /* Teal desktop background */
+  --win-workspace: #5a595a; /* VB6 IDE gray-pattern workspace */
+}
+
+/* Base typography and layout reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Tahoma", "MS Sans Serif", Geneva, sans-serif;
+  font-size: 11px;
+  background-color: var(--win-desktop);
+  color: var(--win-black);
+  height: 100vh;
+  overflow: hidden;
+  image-rendering: pixelated;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, button, select, textarea, table {
+  font-family: inherit;
+  font-size: 11px;
+}
+
+/* Scrollbars styling for Webkit */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background: #dfdfdf;
+  background-image: linear-gradient(45deg, #d4d0c8 25%, transparent 25%), 
+                    linear-gradient(-45deg, #d4d0c8 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #d4d0c8 75%), 
+                    linear-gradient(-45deg, transparent 75%, #d4d0c8 75%);
+  background-size: 4px 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  box-shadow: inset 1px 1px 0 var(--win-white), inset -1px -1px 0 var(--win-gray);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  box-shadow: none;
+}
+::-webkit-scrollbar-button {
+  display: block;
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+}
+
+/* 3D Borders Bevel System */
+.win-outset {
+  background-color: var(--win-gray);
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  box-shadow: 1px 1px 0px 0px var(--win-black);
+}
+
+.win-outset-soft {
+  background-color: var(--win-gray);
+  border: 1px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+}
+
+.win-inset {
+  background-color: var(--win-white);
+  border: 2px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+}
+
+/* Classic Button */
+.win-btn {
+  background-color: var(--win-gray);
+  color: var(--win-black);
+  padding: 4px 12px;
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  box-shadow: 1px 1px 0px 0px var(--win-black);
+  outline: none;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.win-btn:active:not(:disabled) {
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  box-shadow: 0px 0px 0px 1px var(--win-black);
+  padding: 5px 11px 3px 13px; /* Shifts text 1px down and right */
+}
+.win-btn:focus:not(:active) {
+  outline: 1px dotted var(--win-black);
+  outline-offset: -5px;
+}
+.win-btn:disabled {
+  color: var(--win-text-gray);
+  text-shadow: 1px 1px 0px var(--win-white);
+}
+
+/* Main IDE Layout */
+#ide-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--win-gray);
+}
+
+/* Menu Bar */
+.win-menubar {
+  display: flex;
+  background-color: var(--win-gray);
+  padding: 2px 6px;
+  border-bottom: 1px solid var(--win-shadow);
+  gap: 2px;
+  position: relative;
+  z-index: 1000;
+}
+.win-menubar-item {
+  padding: 3px 8px;
+  cursor: default;
+  position: relative;
+}
+.win-menubar-item:hover {
+  background-color: var(--win-blue);
+  color: var(--win-white);
+}
+.win-menubar-item.active {
+  background-color: var(--win-white);
+  color: var(--win-black);
+  border: 1px solid var(--win-shadow);
+  border-bottom: none;
+  padding: 2px 7px 3px 7px;
+}
+
+/* Dropdown Menu */
+.win-menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--win-gray);
+  min-width: 180px;
+  z-index: 1001;
+  padding: 2px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.win-menubar-item.active .win-menu-dropdown {
+  display: block;
+}
+.win-menu-item {
+  padding: 4px 16px 4px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--win-black);
+  text-decoration: none;
+}
+.win-menu-item:hover {
+  background-color: var(--win-blue);
+  color: var(--win-white);
+}
+.win-menu-separator {
+  height: 1px;
+  background-color: var(--win-shadow);
+  margin: 3px 1px;
+  border-bottom: 1px solid var(--win-white);
+}
+
+/* Toolbar */
+.win-toolbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--win-gray);
+  padding: 3px 6px;
+  border-bottom: 2px solid var(--win-white);
+  gap: 4px;
+  box-shadow: 0px 1px 0px 0px var(--win-shadow);
+}
+.win-toolbar-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: default;
+}
+.win-toolbar-btn:hover {
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  background-color: #dfdfdf;
+}
+.win-toolbar-btn:active {
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  padding: 5px 3px 3px 5px;
+}
+.win-toolbar-separator {
+  width: 2px;
+  height: 18px;
+  background-color: var(--win-shadow);
+  border-right: 1px solid var(--win-white);
+  margin: 0 4px;
+}
+
+/* Workspace Area */
+#ide-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--win-dark-shadow);
+}
+
+/* Left Toolbox (VB6 Style) */
+.win-toolbox {
+  width: 52px;
+  background-color: var(--win-gray);
+  border-right: 2px solid var(--win-white);
+  box-shadow: 1px 0px 0px var(--win-shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  gap: 2px;
+  z-index: 10;
+}
+.win-toolbox-title {
+  font-size: 9px;
+  font-weight: bold;
+  background-color: var(--win-shadow);
+  color: var(--win-white);
+  text-align: center;
+  padding: 1px 0;
+  margin-bottom: 2px;
+}
+.win-toolbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.win-toolbox-btn {
+  width: 22px;
+  height: 22px;
+  background-color: var(--win-gray);
+  border: 1px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+.win-toolbox-btn:hover {
+  background-color: var(--win-white);
+}
+.win-toolbox-btn.active {
+  background-color: #dfdfdf;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,0.15);
+}
+
+/* Center Form Canvas (where draggable forms live) */
+#mdi-workspace {
+  flex: 1;
+  background-color: var(--win-workspace);
+  background-image: radial-gradient(var(--win-dark-shadow) 1px, transparent 1px);
+  background-size: 8px 8px; /* Classic VB6 dots grid */
+  position: relative;
+  overflow: auto;
+}
+
+/* Right Property Explorer */
+.win-properties {
+  width: 220px;
+  background-color: var(--win-gray);
+  border-left: 2px solid var(--win-white);
+  box-shadow: -1px 0px 0px var(--win-shadow);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.win-properties-title {
+  background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light));
+  color: var(--win-white);
+  font-weight: bold;
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.win-properties-tabs {
+  display: flex;
+  background-color: var(--win-gray);
+  padding: 2px 2px 0 2px;
+  border-bottom: 1px solid var(--win-shadow);
+}
+.win-properties-tab {
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  cursor: default;
+}
+.win-properties-tab.active {
+  background-color: var(--win-gray);
+  border-color: var(--win-shadow) var(--win-shadow) transparent var(--win-shadow);
+  font-weight: bold;
+  position: relative;
+  top: 1px;
+}
+.win-properties-grid {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--win-white);
+  border: 1px solid var(--win-shadow);
+  margin: 3px;
+}
+.win-property-row {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+}
+.win-property-name {
+  width: 45%;
+  padding: 3px 6px;
+  background-color: #f0f0f0;
+  border-right: 1px solid var(--win-shadow);
+  font-weight: bold;
+}
+.win-property-value {
+  width: 55%;
+  padding: 3px 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Status Bar */
+.win-statusbar {
+  height: 22px;
+  background-color: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  box-shadow: 0px -1px 0px var(--win-shadow);
+  display: flex;
+  padding: 2px;
+  gap: 2px;
+}
+.win-status-panel {
+  flex: 1;
+  background-color: var(--win-gray);
+  border: 1px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  padding: 1px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.win-status-panel.fixed {
+  flex: 0 0 120px;
+  text-align: center;
+}
+
+/* Windows 98 Draggable Forms */
+.win-window {
+  position: absolute;
+  background-color: var(--win-gray);
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.win-window.active {
+  z-index: 500;
+}
+
+/* Window Titlebar */
+.win-titlebar {
+  background: linear-gradient(90deg, var(--win-blue-inactive), var(--win-blue-inactive-light));
+  color: #dfdfdf;
+  padding: 3px 4px 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.win-window.active .win-titlebar {
+  background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light));
+  color: var(--win-white);
+}
+.win-title-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.win-title-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.win-title-controls {
+  display: flex;
+  gap: 2px;
+}
+.win-title-btn {
+  width: 16px;
+  height: 14px;
+  background-color: var(--win-gray);
+  border: 1px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  color: var(--win-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: bold;
+  cursor: default;
+  padding-bottom: 2px;
+}
+.win-title-btn:active {
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  padding: 1px 0px 0px 1px;
+}
+.win-title-btn.close-btn {
+  margin-left: 2px;
+}
+
+/* Window Content Body */
+.win-window-body {
+  padding: 8px;
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+/* Tab Panels */
+.win-tab-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.win-tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--win-white);
+  padding-left: 4px;
+  gap: 2px;
+}
+.win-tab-header-item {
+  background-color: var(--win-gray);
+  padding: 4px 10px;
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) transparent var(--win-white);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  cursor: default;
+  position: relative;
+  top: 2px;
+}
+.win-tab-header-item.active {
+  border-bottom-color: var(--win-gray);
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  top: 1px;
+  z-index: 2;
+}
+.win-tabs-content {
+  flex: 1;
+  background-color: var(--win-gray);
+  border: 2px solid;
+  border-color: transparent var(--win-shadow) var(--win-shadow) var(--win-white);
+  border-top: none;
+  padding: 8px;
+}
+.win-tab-pane {
+  display: none;
+  height: 100%;
+}
+.win-tab-pane.active {
+  display: block;
+}
+
+/* Form Controls and Labeling */
+.win-label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: normal;
+}
+.win-form-group {
+  margin-bottom: 8px;
+}
+.win-form-group-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.win-form-group-row > .win-form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Form Fields */
+.win-textbox, .win-select {
+  width: 100%;
+  padding: 3px 4px;
+  background-color: var(--win-white);
+  border: 2px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  color: var(--win-black);
+  outline: none;
+  height: 21px;
+}
+.win-textbox:focus, .win-select:focus {
+  background-color: #ffffd0; /* Highlight focused field */
+}
+.win-textbox:disabled, .win-select:disabled {
+  background-color: var(--win-gray);
+  color: var(--win-text-gray);
+}
+textarea.win-textbox {
+  height: auto;
+}
+
+/* Checkbox and Radio */
+.win-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+  margin-bottom: 4px;
+}
+.win-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: var(--win-white);
+  border: 2px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  outline: none;
+  position: relative;
+}
+.win-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: -4px;
+  left: 0px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--win-black);
+}
+
+/* Classic Windows Frame / Group Box */
+.win-frame {
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: var(--win-gray);
+}
+.win-frame-title {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: var(--win-gray);
+  padding: 0 4px;
+  font-weight: bold;
+}
+
+/* Windows List View (Table Grid) */
+.win-listview-container {
+  overflow: auto;
+  border: 2px solid;
+  border-color: var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);
+  background-color: var(--win-white);
+  flex: 1;
+}
+.win-listview {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.win-listview th {
+  background-color: var(--win-gray);
+  border-right: 1px solid var(--win-shadow);
+  border-bottom: 1px solid var(--win-shadow);
+  padding: 3px 6px;
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.win-listview th::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid var(--win-white);
+  border-right: none;
+  border-bottom: none;
+}
+.win-listview th:active {
+  border-right: 1px solid var(--win-white);
+  border-bottom: 1px solid var(--win-white);
+  padding: 4px 5px 2px 7px;
+}
+.win-listview td {
+  padding: 3px 6px;
+  border-right: 1px dotted #d0d0d0;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+.win-listview tr.selected td {
+  background-color: var(--win-blue);
+  color: var(--win-white);
+  border-right-color: var(--win-blue);
+}
+.win-listview tr:hover:not(.selected) td {
+  background-color: #f0f4f9;
+}
+
+/* Login Form specific */
+.login-form-box {
+  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.login-banner {
+  background: linear-gradient(135deg, #0f2b5c 0%, #1c52b0 100%);
+  color: var(--win-white);
+  padding: 12px;
+  border-bottom: 1px solid var(--win-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.login-banner h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Alert dialog popups */
+.win-dialog {
+  width: 300px;
+  z-index: 2000;
+}
+.win-dialog-content {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.win-dialog-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.win-dialog-icon.info {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%231084d0"/><text x="16" y="22" font-family="sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">i</text></svg>');
+}
+.win-dialog-icon.error {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23cc0000"/><text x="16" y="23" font-family="sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">×</text></svg>');
+}
+.win-dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Form validation error text */
+.error-text {
+  color: #cc0000;
+  font-weight: bold;
+  margin-top: 2px;
+}
